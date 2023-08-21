@@ -1,0 +1,59 @@
+@use "../globals/" as *;
+@use "../utility/" as *;
+
+.articles {
+  background-color: $veryLightGray;
+}
+
+.article {
+  &__grid {
+    display: grid;
+    gap: rem(30);
+    // grid-template-columns: repeat(auto-fit, minmax(rem(230), 1fr));
+    grid-template-columns: 1fr;
+
+    @include breakpoint-up(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint-up(large) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  &__item {
+    background-color: $white;
+    border-radius: rem(5);
+    overflow: hidden;
+    box-shadow: 0px rem(3) rem(12) rgba(0, 0, 0, 0.15);
+    transition: all 150ms ease-in-out;
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+  &__image {
+    height: rem(200);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  &__text {
+    color: $grayishBlue;
+    padding: rem(30) rem(30) rem(40) rem(30);
+
+    @include breakpoint-up(medium) {
+      padding: rem(30) rem(25);
+    }
+  }
+  &__author {
+    margin-bottom: rem(12);
+    font-size: rem(10);
+  }
+  &__title {
+    margin-bottom: rem(8);
+    font-size: rem(17);
+    line-height: 1.2;
+    color: $darkBlue;
+  }
+  &__description {
+    font-size: rem(13);
+  }
+}

@@ -1,0 +1,137 @@
+@use "../globals/" as *;
+@use "../utility/" as *;
+
+.header {
+  nav {
+    position: relative;
+    background-color: $white;
+    padding-top: rem(17);
+    padding-bottom: rem(17);
+  }
+
+  &__logo {
+    img {
+      width: rem(141);
+      height: rem(22);
+    }
+  }
+
+  &__menu {
+    // mobile menu
+    > span {
+      display: block;
+      width: rem(26);
+      height: rem(2);
+      background-color: $darkBlue;
+      transition: all 300ms ease-in-out;
+      transform-origin: rem(3) rem(1);
+
+      &:not(:last-child) {
+        margin-bottom: rem(5);
+      }
+    }
+  }
+
+  &__links {
+    @include breakpoint-down(medium) {
+      position: absolute;
+      top: rem(100);
+      width: calc(100% - 3rem);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: rem(5);
+      background-color: $white;
+
+      a {
+        text-align: center;
+        line-height: 2.5;
+        display: block;
+        width: 100%;
+        font-size: $font-med;
+        color: $darkBlue;
+
+        &:first-child {
+          padding-top: rem(20);
+        }
+
+        &:last-child {
+          padding-bottom: rem(20);
+        }
+      }
+    }
+
+    @include breakpoint-up(large) {
+      a {
+        position: relative;
+        font-size: $font-sm;
+        transition: color 300ms ease-in-out;
+        color: $grayishBlue;
+
+        &:not(:last-child) {
+          margin-right: rem(32);
+        }
+
+        // hover effect
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: rem(-30);
+          width: 100%;
+          height: rem(5);
+          background: linear-gradient(to right, $limeGreen, $brightCyan);
+          opacity: 0;
+          transition: opacity 300ms ease-in-out;
+        }
+
+        &:hover {
+          color: $darkBlue;
+
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .overlay {
+    opacity: 0;
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-image: linear-gradient($darkBlue, transparent);
+  }
+
+  &.open {
+    .overlay {
+      display: block;
+      top: rem(60);
+      z-index: 5;
+    }
+
+    .header__menu {
+      z-index: 6;
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+    .header__links {
+      z-index: 6;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+footer {
+  display: flex;
+  color: var(--text-color);
+
+  & .container {
+    margin: 0 auto;
+  }
+
+}

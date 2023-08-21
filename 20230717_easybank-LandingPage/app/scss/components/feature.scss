@@ -1,0 +1,55 @@
+@use "../globals/" as *;
+@use "../utility/" as *;
+
+.feature {
+  background-color: $lightGrayishBlue;
+  text-align: center;
+
+  @include breakpoint-up(medium) {
+    text-align: left;
+  }
+
+  &__intro {
+    margin-bottom: rem(60);
+
+    @include breakpoint-up(large) {
+      width: 60%;
+    }
+  }
+  &__grid {
+    @include breakpoint-up(medium) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  &__item {
+    padding: rem(30) rem(30) rem(30) rem(0);
+    @include breakpoint-up(medium) {
+      flex: 0 0 50%; // flex-grow flex-shrink flex-basis: each item should take half of the width
+    }
+    @include breakpoint-up(large) {
+      flex: 1; // all the items on the same row with same width
+    }
+  }
+  &__icon {
+    margin-bottom: rem(30);
+    @include breakpoint-up(large) {
+      margin-bottom: rem(44);
+    }
+  }
+  &__title {
+    margin-bottom: rem(16);
+    font-size: rem(20);
+    font-weight: 300;
+    line-height: 1.15;
+    color: $darkBlue;
+    @include breakpoint-up(large) {
+      margin-bottom: rem(24);
+      font-size: rem(24);
+    }
+  }
+  &__description {
+    font-size: $font-sm;
+    line-height: 1.5;
+  }
+}
