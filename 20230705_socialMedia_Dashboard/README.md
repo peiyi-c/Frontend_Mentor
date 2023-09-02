@@ -53,5 +53,5 @@ Dark mode \
 
 ## Acknowledgments
 
-This is a practice inspired by this tutorial - [Building a Light/Dark Dashbord](https://www.youtube.com/playlist?list=PLUWqFDiirlsu5az5EIyxe8ZddyNO_kDuP) with some adaptions in JavaScript.
+Thanks Codercoder for explaining this practice - [Building a Light/Dark Dashbord](https://www.youtube.com/playlist?list=PLUWqFDiirlsu5az5EIyxe8ZddyNO_kDuP) I follow her instruction and adapt some JavaScript.
 
