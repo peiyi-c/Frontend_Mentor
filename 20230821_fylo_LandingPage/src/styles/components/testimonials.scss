@@ -1,0 +1,35 @@
+@use "../globals/" as *;
+
+.testimonial {
+  &__quote {
+    display: block;
+    width: 10%;
+  }
+
+  &__item {
+    margin: rem(15) 0px;
+    padding: rem(33) rem(33);
+    background-color: $darkblue-4;
+    border-radius: rem(10);
+    letter-spacing: rem(1);
+    &__description {
+      font-size: rem(16);
+    }
+    &__bottom {
+      gap: rem(20);
+    }
+    &__img {
+      width: rem(70);
+      height: rem(70);
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    &__name {
+      font-weight: $bold;
+      letter-spacing: rem(2);
+    }
+    &__position {
+      font-size: $md;
+    }
+  }
+}

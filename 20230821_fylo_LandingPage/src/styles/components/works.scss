@@ -1,0 +1,50 @@
+@use "../globals/" as *;
+
+.works {
+  &__text {
+    gap: rem(10);
+  }
+  &__title {
+    width: 100%;
+
+    @include breakpoint-up(large) {
+      width: 60%;
+    }
+  }
+
+  &__cta {
+    position: relative;
+    &__link {
+      text-decoration: none;
+      color: $cyan;
+      border-bottom: 1px $cyan solid;
+      padding-right: rem(35);
+      padding-bottom: rem(10);
+
+      &:hover {
+        color: $white;
+        border-bottom: 1px $white solid;
+        &::after {
+          background-image: url("../../images/icon-arrow-hover.svg");
+        }
+      }
+      &::after {
+        margin-left: rem(-29);
+        position: absolute;
+        left: 100%;
+        top: 4%;
+        content: "";
+        width: rem(29);
+        height: auto;
+        padding-bottom: rem(38);
+
+        background-image: url("../../images/icon-arrow.svg");
+        background-repeat: no-repeat;
+        background-color: transparent;
+        background-size: contain;
+
+        transition: all 0.4s;
+      }
+    }
+  }
+}

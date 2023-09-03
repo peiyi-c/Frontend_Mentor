@@ -1,0 +1,38 @@
+@use "./functions.scss" as *;
+@use "./mixins.scss" as *;
+
+// Headings, Call-to-actions, Header Navigation
+$Raleway: "Raleway";
+
+// Body
+$OpenSans: "Open Sans";
+
+// Fonz size
+$xxs: rem(12);
+$xs: rem(14);
+$sm: rem(16);
+$md: rem(18);
+$lg: rem(20);
+$llg: rem(22);
+$xl: rem(24);
+$xxl: rem(26);
+$xxxl: rem(28);
+
+// Font weight
+$normal: 400;
+$bold: 700;
+
+.title {
+  font-family: $Raleway, sans-serif;
+  font-weight: $bold;
+  line-height: 1.3;
+}
+
+.description {
+  font-family: $Raleway, sans-serif;
+  font-size: $xl;
+  line-height: 1.5;
+  @include breakpoint-up(large) {
+    font-size: $xxl;
+  }
+}

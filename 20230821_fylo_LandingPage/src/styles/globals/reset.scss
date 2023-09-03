@@ -1,0 +1,133 @@
+@use "colors" as *;
+
+@use "mixins" as *;
+@use "fonts" as *;
+@use "functions" as *;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: rem(75);
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+
+  font-weight: $normal !important;
+  overflow-x: hidden;
+  background-color: $darkblue-2 !important;
+  color: $white !important;
+  font-family: $OpenSans, sans-serif !important;
+  font-size: $sm !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  font-family: $Raleway, sans-serif;
+  font-weight: $bold;
+  &::selection {
+    background-color: $cyan;
+    color: $black;
+  }
+}
+
+p,
+a,
+li,
+button,
+ul {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  text-decoration: none;
+  &::selection {
+    background-color: $cyan;
+    color: $black;
+  }
+}
+
+a {
+  position: relative;
+  color: $white;
+  transition: all 0.4s;
+  &::selection {
+    background-color: $cyan;
+    color: $black;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button,
+.button {
+  display: inline-block;
+  padding: rem(15) rem(100);
+  width: max-content;
+  border: 0;
+  border-radius: rem(30) !important;
+  background: linear-gradient(90deg, $cyan 0%, $blue 100%);
+  color: $white;
+  font-weight: $bold;
+  font-family: $Raleway, sans-serif;
+  font-size: $llg;
+  letter-spacing: rem(0.5);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: $cyan;
+    cursor: pointer;
+  }
+}
+
+input[type="email"] {
+  height: rem(70);
+  width: rem(450);
+  border: 0;
+  padding-left: rem(50);
+  border-radius: rem(40) !important;
+  font-family: $Raleway, sans-serif;
+  font-size: $sm;
+  letter-spacing: rem(0.5);
+  @include breakpoint-up(large) {
+    padding: rem(20) rem(100) rem(20) rem(50);
+  }
+}
+
+input[type="email"]:active,
+input[type="email"]:focus {
+  color: $darkblue-2;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.container,
+.container-fluid {
+  text-align: center;
+  padding: rem(25) rem(35) !important;
+
+  @include breakpoint-up(large) {
+    padding: rem(30) rem(50) !important;
+  }
+}

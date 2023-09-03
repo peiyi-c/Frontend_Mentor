@@ -1,0 +1,77 @@
+@use "../globals/" as *;
+
+.footer {
+  width: 100%;
+  background-color: $darkblue-3;
+
+  &__logo {
+    padding-top: rem(200);
+
+    img {
+      width: 50%;
+      @include breakpoint-up(medium) {
+        width: clamp(rem(100), 50%, rem(150));
+      }
+    }
+  }
+  &__text {
+    @include breakpoint-down(medium) {
+      gap: rem(60);
+    }
+    .col {
+      font-family: $OpenSans, sans-serif;
+    }
+
+    svg {
+      margin-right: rem(20);
+    }
+
+    &__address {
+      font-size: $lg;
+    }
+
+    &__contact {
+      a {
+        text-decoration: none;
+        font-size: $lg;
+        color: $white;
+        &:hover {
+          font-weight: $bold;
+        }
+      }
+    }
+    &__links {
+      a {
+        display: block;
+        margin-bottom: rem(10);
+        text-decoration: none;
+        font-size: $md;
+        color: $white;
+        transition: all 0.8s ease-in-out;
+        &:hover {
+          font-weight: $bold;
+        }
+      }
+    }
+    &__social {
+      font-size: $xxl;
+      > * {
+        transition: all 1s ease-out;
+        *:hover {
+          color: $cyan;
+          transform: scale(1.2);
+          transform-origin: 50%;
+        }
+      }
+    }
+  }
+
+  &__attribution {
+    font-size: $xs;
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: $cyan;
+    }
+  }
+}

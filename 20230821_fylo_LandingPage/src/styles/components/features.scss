@@ -1,0 +1,14 @@
+@use "../globals/" as *;
+
+.features {
+  width: 100%;
+  .feature {
+    grid-gap: rem(20);
+    place-items: center;
+    &__img {
+      object-fit: contain;
+      width: rem(120);
+      height: rem(120);
+    }
+  }
+}

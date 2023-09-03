@@ -1,0 +1,23 @@
+@use "../globals/" as *;
+
+.hero {
+  background-color: $darkblue-1;
+  background-image: url(../../images/bg-curvy-mobile.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+
+  @include breakpoint-up(large) {
+    background-image: url(../../images/bg-curvy-desktop.svg);
+  }
+
+  .container {
+    .row {
+      gap: rem(80);
+    }
+  }
+
+  &__title {
+    height: rem(110);
+  }
+}
