@@ -10,7 +10,7 @@
 notes.md
 # production
 /build
-
+/design
 # misc
 .DS_Store
 .env.local
