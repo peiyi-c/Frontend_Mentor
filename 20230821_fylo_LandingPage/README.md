@@ -65,7 +65,7 @@ Users should be able to:
 ) - You need to run <code>npm i --save @fortawesome/free-brands-svg-icons</code> in project root terminal if the icon has "fa-brand" which indicates it is in "@fortawesome/free-brands-svg-icons"
 - [Resource 5](https://codepen.io/bonkalol/pen/mdRMOp) - I learned this underline effect for my nav links.
 - [Resource 6](https://animate.style/) - A small package to add small animations!
-- [Resource 7](https://www.youtube.com/watch?time_continue=4609&v=hYv6BM2fWd8) - I learned this "tying animation effect" in my hero component from this tutorial.
+- [Resource 7](https://www.youtube.com/watch?time_continue=4609&v=hYv6BM2fWd8) - I learned this "tying animation effect" from this tutorial for my hero component.
 
 
 ## Author
