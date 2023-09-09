@@ -21,8 +21,9 @@ Users should be able to:
 - View the optimal layout for the site depending on their device's screen size
 
 ### Screenshot
+![Desktop](https://github.com/peiyi-c/Frontend_Mentor/assets/73789013/4c41c070-4c65-47d4-91f4-cea387961155)
 
-![](./screenshot.jpg)
+![Mobile](https://github.com/peiyi-c/Frontend_Mentor/assets/73789013/00185191-ee87-4ac4-9de5-50931082a7b5)
 
 ### Links
 
@@ -34,7 +35,6 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
