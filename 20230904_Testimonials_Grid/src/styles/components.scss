@@ -1,0 +1,174 @@
+@use "./globals.scss" as *;
+
+body {
+  min-width: rem(375);
+  background-color: $lightGrayishBlue;
+  color: $white;
+
+  font: {
+    family: $fontFamily;
+    size: $bodyCopy;
+  }
+}
+
+.grid {
+  margin: rem(100) rem(40);
+  display: grid;
+  gap: rem(40);
+  transition: all 0.4s ease-in-out;
+
+  @include breakpoint-up(medium) {
+    margin: rem(100);
+  }
+
+  @include breakpoint-up(xlarge) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(rem(200), auto));
+  }
+
+  @include breakpoint-up(xxlarge) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  &-item {
+    padding: rem(40);
+    height: auto;
+    width: 100%;
+    border-radius: rem(20);
+    display: grid;
+    grid-gap: rem(20);
+    box-shadow: rem(3) rem(10) rem(20) rem(1) $lightGray;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: rem(25);
+
+      &-img {
+        width: rem(40);
+        height: rem(40);
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid rgba($white, 0.5);
+      }
+      &-names {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        letter-spacing: rem(0.5);
+        font-weight: 400;
+
+        &_name {
+          font-size: rem(16);
+          @include breakpoint-up(medium) {
+            font-size: rem(16 * 1.2);
+          }
+        }
+        &_membership {
+          font-size: rem(14);
+          color: inherit;
+          opacity: 0.5;
+          @include breakpoint-up(medium) {
+            font-size: rem(14 * 1.2);
+          }
+        }
+      }
+    }
+    &-description {
+      display: grid;
+      grid-gap: rem(20);
+      letter-spacing: rem(0.3);
+
+      &_a {
+        font-size: rem(21);
+        font-weight: 500;
+      }
+      &_d {
+        color: inherit;
+        opacity: 0.3;
+        line-height: 1.6;
+        font-weight: 400;
+        font-size: rem(14);
+      }
+    }
+    &_1 {
+      @extend %card-bgViolet;
+      @extend %card-bgQuotation;
+
+      @include breakpoint-up(xxlarge) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+      }
+      .grid-item-header,
+      .grid-item-description {
+        z-index: 3; // due to quotation background
+      }
+    }
+    &_2 {
+      @extend %card-bgGrayishBlue;
+      @include breakpoint-up(xxlarge) {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+      }
+    }
+    &_3 {
+      @extend %card-bgWhite;
+      @include breakpoint-up(xxlarge) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
+    }
+    &_4 {
+      @extend %card-bgBlackishBlue;
+      @include breakpoint-up(xxlarge) {
+        grid-column: 2 / 4;
+        grid-row: 2 / 3;
+      }
+    }
+    &_5 {
+      @extend %card-bgWhite;
+      @include breakpoint-up(xxlarge) {
+        grid-column: 4 / 5;
+        grid-row: 1 / 3;
+      }
+    }
+  }
+}
+
+/* DESING SETs of testimonial cards */
+%card-bgQuotation {
+  position: relative;
+  // quotation background //
+  &::before {
+    position: absolute;
+    right: 10%;
+    content: "";
+    width: rem(150);
+    height: rem(150);
+    background-image: url("../images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 2;
+  }
+}
+
+%card-bgWhite {
+  background-color: $white;
+  color: $darkBlackishBlue;
+}
+
+%card-bgViolet {
+  background-color: $moderateViolet;
+  color: inherit;
+}
+
+%card-bgGrayishBlue {
+  background-color: $darkGrayishBlue;
+  color: inherit;
+}
+
+%card-bgBlackishBlue {
+  background-color: $darkBlackishBlue;
+  color: inherit;
+}
