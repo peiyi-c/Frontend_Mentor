@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Age calculator app</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <!-- Birthday Input Form -->
+      <form action="/" class="container">
+        <div class="input-day">
+          <label for="day">day</label>
+          <input
+            id="day"
+            name="day"
+            type="number"
+            placeholder="DD"
+            min="1"
+            max="31"
+          />
+          <span class="input-alert"></span>
+        </div>
+        <div class="input-month">
+          <label for="month">month</label>
+          <input
+            id="month"
+            name="month"
+            type="number"
+            placeholder="MM"
+            min="1"
+            max="12"
+          />
+          <span class="input-alert"></span>
+        </div>
+        <div class="input-year">
+          <label for="year">year</label>
+          <input
+            id="year"
+            name="year"
+            type="number"
+            placeholder="YYYY"
+            min="1"
+          />
+          <span class="input-alert"></span>
+        </div>
+        <button class="input-button" type="submit">
+          <img src="./assets/images/icon-arrow.svg" />
+        </button>
+      </form>
+
+      <span class="separator" aria-hidden="true"></span>
+      <!--  Calculated Age Result -->
+      <section class="container">
+        <div class="result-text">
+          <p>
+            <span class="result-num result-year">- -</span>
+            <span>years</span>
+          </p>
+          <p>
+            <span class="result-num result-month">- -</span>
+            <span>months</span>
+          </p>
+          <p>
+            <span class="result-num result-day">- -</span>
+            <span>days</span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="attribution container">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Pei-Yi C</a>.
+    </footer>
+
+    <!-- https://www.jsdelivr.com/package/npm/moment -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- https://www.jsdelivr.com/package/npm/moment-precise-range-plugin -->
+    <script src="
+    https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js
+    "></script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

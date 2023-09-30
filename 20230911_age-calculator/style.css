@@ -1,0 +1,306 @@
+/* RESET & GLOBALS */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Colors & Typography */
+
+:root {
+  /*primary*/
+  --purple: hsl(259, 100%, 65%);
+  --lightRed: hsl(0, 100%, 67%);
+  /*neutral*/
+  --white: hsl(0, 0%, 100%);
+  --offWhite: hsl(0, 0%, 94%);
+  --lightGrey: hsl(0, 0%, 86%);
+  --smokeyGrey: hsl(0, 1%, 44%);
+  --offBlack: hsl(0, 0%, 8%);
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 400;
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: italic;
+  src: url("./assets/fonts/Poppins-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 700;
+  src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-style: italic;
+  src: url("./assets/fonts/Poppins-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 800;
+  src: url("./assets/fonts/Poppins-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 800;
+  font-style: italic;
+  src: url("./assets/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
+}
+
+/* CONTENT */
+
+body {
+  padding: 8vh 1vw 0 1vw;
+  background-color: var(--lightGrey);
+  min-width: 355px;
+  max-width: 1500px;
+  font-size: 32px;
+}
+.container {
+  margin: 0 auto;
+  height: 100%;
+  width: 90%;
+}
+
+/* Main */
+main {
+  border-radius: 15px 15px 150px 15px;
+  background-color: var(--white);
+}
+/*form*/
+form {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, minmax(80px, 1fr));
+  grid-template-rows: repeat(2, minmax(50px, 1fr));
+  grid-column-gap: 5%;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--smokeyGrey);
+}
+form {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, minmax(80px, 1fr));
+  grid-template-rows: repeat(2, minmax(50px, 1fr));
+  grid-column-gap: 5%;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--smokeyGrey);
+}
+
+form div {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(16px, 2vw, 100px);
+}
+
+input[type="number"] {
+  min-width: 90px;
+  width: 12vw;
+  height: 6vh;
+  padding: 10%;
+  outline: none;
+  border-radius: 10px;
+  border: 1.5px solid var(--lightGrey);
+}
+
+input::placeholder {
+  color: var(--lightGrey);
+}
+
+input:focus {
+  border: 1.5px solid var(--purple);
+}
+
+.input-day {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.input-month {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+.input-year {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+.input-alert {
+  display: block;
+  height: 10px;
+  margin-top: 5%;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: clamp(9px, 1vw, 50px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--lightRed);
+}
+.input-button {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  border: none;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  background: var(--purple);
+  z-index: 2;
+}
+.input-button:hover {
+  cursor: pointer;
+  background: var(--offBlack);
+}
+.input-button img {
+  margin: auto;
+  padding: 12px;
+}
+/*separator*/
+.separator {
+  margin: 0 auto;
+  position: relative;
+  bottom: 72px;
+  display: block;
+  height: 1.5px;
+  width: 82%;
+  background: var(--lightGrey);
+}
+/*section*/
+section {
+  padding-bottom: 60px;
+}
+section div {
+  font-style: italic;
+  font-weight: 800;
+}
+.result-text {
+  font-size: clamp(50px, 9vw, 100px);
+}
+.result-num {
+  color: var(--purple);
+}
+
+/* footer */
+footer {
+  padding-top: 60px;
+}
+.attribution {
+  font-size: 12px;
+  text-align: center;
+}
+.attribution a {
+  color: var(--offBlack);
+}
+
+/** TABLET **/
+@media (min-width: 515px) {
+  form {
+    grid-template-columns: repeat(4, minmax(80px, 1fr));
+    grid-template-rows: repeat(2, minmax(50px, 1fr));
+    grid-column-gap: 0;
+    letter-spacing: 1.7px;
+    justify-items: start;
+  }
+}
+
+/** DESKTOP **/
+@media (min-width: 600px) {
+  body {
+    padding: 10vh 7vw 0 7vw;
+  }
+  .separator {
+    right: 2%;
+  }
+  .input-button {
+    grid-column: -2 / -1;
+    justify-self: end;
+    height: 77px;
+    width: 77px;
+  }
+  .separator {
+    bottom: 84px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    padding: 10vh 10vw 0 10vw;
+  }
+
+  input[type="number"] {
+    width: 12vw;
+    height: 7vh;
+  }
+
+  .input-button {
+    grid-column: -2 / -1;
+    justify-self: end;
+    height: 84px;
+    width: 84px;
+  }
+  .separator {
+    bottom: 90px;
+  }
+}
