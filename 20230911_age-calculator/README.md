@@ -48,6 +48,7 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS Grid, CSS Variables...
 - Mobile-first workflow
+- Moment.js
 
 ### What I learned
 
@@ -58,6 +59,8 @@ I wanted to practice validation check in this project. The checking flow can be 
 - **After the user click on submit**, it will be checked if all the required fields are filled, if the date (combination of DD/MM/YYYY) exists and if the date was in the past.
 
 - Only when all input values pass the check will the app calculate the age. Otherwise it will throw error messages.
+  
+- I also learned we can use moment.js to get the precise date difference (today - birthday).
 
 
 ### Continued development
