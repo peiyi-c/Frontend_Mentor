@@ -28,11 +28,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Screenshot 2023-09-30 at 17-07-55 Frontend Mentor Base Apparel coming soon page](https://github.com/peiyi-c/Frontend_Mentor/assets/73789013/537c1cc7-356f-4b59-813a-4451cee16a7f)
+
+![Screenshot 2023-09-30 at 17-08-34 Frontend Mentor Base Apparel coming soon page](https://github.com/peiyi-c/Frontend_Mentor/assets/73789013/660ee428-5dfd-46ef-9498-a5192788cfc1)
+
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Live site URL](https://shaggy-toe.surge.sh/)
 
 ## My process
 
@@ -45,12 +48,12 @@ Users should be able to:
 
 ### What I learned
 
-I've learned how to change Bootstrap default scss variables and css variables in order to create color plattes tailored to the given design guideline.
+In this challenge, I've learned how to adapt Bootstrap default scss and css variables in order to put colors according to the given design guideline.
 
 ### Useful resources
 
-- [Resource 1:在 Vue 專案使用 Sass/SCSS +共用變數 (feat. Vite)](https://ithelp.ithome.com.tw/articles/10301528) - Here I learned how to use SCSS in Vue and some details about importing SCSS variables.
-- [Resource 2: Do You Really Understand CSS Inheritance?](https://www.youtube.com/watch?v=N8tFrMZp_wA) - A reminder of considering CSS inheritance for styles.
+- [Resource 1:在 Vue 專案使用 Sass/SCSS +共用變數 (feat. Vite)](https://ithelp.ithome.com.tw/articles/10301528) - Here you can introduction to using SCSS in Vue and some details about importing SCSS variables in your Vue project.
+- [Resource 2: Do You Really Understand CSS Inheritance?](https://www.youtube.com/watch?v=N8tFrMZp_wA) - A reminder of considering CSS inheritance for styles!
 
 ## Author
 
