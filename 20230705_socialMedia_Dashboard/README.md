@@ -32,7 +32,7 @@ Dark mode \
 
 ### Link
 
-- Project result - [Check out this out!](https://grandiose-hearing.surge.sh/)
+- Project result - [Check this out!](https://grandiose-hearing.surge.sh/)
   
 ## My process
 
