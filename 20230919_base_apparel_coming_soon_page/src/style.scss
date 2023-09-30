@@ -1,0 +1,106 @@
+$desaturatedRed: hsl(0, 36%, 70%);
+$darkGrayishRed: hsl(0, 6%, 24%);
+$softRed: hsl(0, 93%, 68%);
+$gradient1: linear-gradient(
+  135deg,
+  rgba(248, 191, 191, 1) 0%,
+  rgba(238, 140, 140, 1) 100%
+);
+
+$gradient2: linear-gradient(
+  135deg,
+  hsl(0, 0%, 100%) 0%,
+  hsl(0, 100%, 98%) 100%
+);
+$green: hsl(169, 60%, 58%);
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+// CUSTOM VARIABLES
+$theme-colors: (
+  "primary": $desaturatedRed,
+  "danger": $darkGrayishRed,
+  "warning": $softRed,
+  "success": $green,
+);
+
+// IMPORT BOOTSTRAP
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* Set core body defaults */
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  background: $gradient2;
+  --bs-body-font-family: "Josefin Sans", sans-serif;
+  --bs-body-color: $softRed;
+  --bs-body-color-rgb: 206, 151, 151;
+  --bs-heading-color: $softRed;
+  --bs-heading-color-rgb: 206, 151, 151;
+  --bs-body-font-weight: 300;
+  --bs-body-bg: transparent;
+  --bs-body-bg-rgb: 0, 0, 0, 0;
+  --bs-border-color-translucent: $darkGrayishRed;
+  --bs-border-radius: 1.5rem;
+  --bs-border-radius-lg: 1.5rem;
+  --bs-border-color: hsl(0, 36%, 70%);
+  --bs-form-invalid-color: hsl(0, 93%, 68%);
+  --bs-form-invalid-border-color: hsl(0, 93%, 68%);
+  --bs-form-valid-color: hsl(169, 60%, 58%);
+  --bs-form-valid-border-color: hsl(169, 60%, 58%);
+}
+
+input[type="email"] {
+  border-width: 1px;
+  border-color: $desaturatedRed;
+  border-right-color: transparent;
+  border-right-width: 0;
+  background-color: transparent;
+  &::placeholder {
+    color: $desaturatedRed;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+}
+
+.input-group-append {
+  z-index: 5;
+}
+.form-control {
+  background-color: transparent;
+  &:active,
+  &:focus {
+    border-color: $softRed;
+    outline: 0;
+    box-shadow: 0.05rem 0 0.01rem 0.05rem $softRed;
+    background-color: inherit;
+    border-right-color: transparent;
+  }
+}
+
+.was-validated {
+  .form-control {
+    &:invalid,
+    &.is-invalid {
+      background-image: url("../assets/icon-error.svg");
+      background-position: right 2rem center;
+      background-color: inherit;
+      &:active,
+      &:focus {
+        box-shadow: 0.05rem 0 0.01rem 0.05rem $softRed;
+        background-color: inherit;
+      }
+    }
+    &:valid,
+    &.is-valid {
+      background-position: right 2rem center;
+      background-color: inherit;
+      &:active,
+      &:focus {
+        box-shadow: 0.05rem 0 0.01rem 0.05rem $green;
+        background-color: inherit;
+      }
+    }
+  }
+}
