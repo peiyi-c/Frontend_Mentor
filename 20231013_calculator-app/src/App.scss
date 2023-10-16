@@ -85,9 +85,8 @@ $blue-7: hsl(198, 20%, 13%); // (THEME 3: text)
   --text-color-3: #{$blue-7};
 }
 
-@media (prefers-color-scheme: dark) {
-  /* Dark theme styles go here */
-  body {
+:root {
+  @media (prefers-color-scheme: dark) {
     --main-bg: #{$blue-1};
     --toggle-bg: #{$blue-2};
     --keypad-bg: #{$blue-2};
@@ -102,11 +101,7 @@ $blue-7: hsl(198, 20%, 13%); // (THEME 3: text)
     --text-color-1: #{$blue-6};
     --text-color-2: #{$white};
   }
-}
-
-@media (prefers-color-scheme: light) {
-  /* Light theme styles go here */
-  body {
+  @media (prefers-color-scheme: light) {
     --main-bg: #{$gray-1};
     --toggle-bg: #{$gray-2};
     --keypad-bg: #{$gray-2};
