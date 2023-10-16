@@ -1,0 +1,124 @@
+$blue-1: hsl(222, 26%, 31%); // (THEME 1: main background)
+$blue-2: hsl(223, 31%, 20%);
+// (THEME 1: toggle background, keypad background)
+$blue-3: hsl(224, 36%, 15%); // (THEME 1: screen background)
+$red-1: hsl(6, 63%, 50%); // (THEME 1: key background, toggle)
+$red-2: hsl(6, 70%, 34%); // (THEME 1: key shadow)
+$blue-4: hsl(225, 21%, 49%); // (THEME 1: key background)
+$blue-5: hsl(224, 28%, 35%); // (THEME 1: key shadow)
+$gray-orange-1: hsl(30, 25%, 89%); // (THEME 1: key background)
+$gray-orange-2: hsl(28, 16%, 65%); // (THEME 1: key shadow)
+$blue-6: hsl(221, 14%, 31%); // (THEME 1: text)
+$white: hsl(0, 0%, 100%); // (THEME 1, 2: text)
+
+$gray-1: hsl(0, 0%, 90%); // (THEME 2: main background)
+$gray-2: hsl(0, 5%, 81%); // (THEME 2: toggle background, keypad background)
+$gray-3: hsl(0, 0%, 93%); // (THEME 2: screen background)
+$cyan-1: hsl(185, 42%, 37%); // (THEME 2: key background)
+$cyan-2: hsl(185, 58%, 25%); // (THEME 2: key shadow)
+$orange-1: hsl(25, 98%, 40%); // THEME 2: key background, toggle)
+$orange-2: hsl(25, 99%, 27%); // (THEME 2: key shadow)
+$gray-yellow-1: hsl(45, 7%, 89%); // (THEME 2: key background)
+$gray-orange-3: hsl(35, 11%, 61%); // (THEME 2: key shadow)
+$gray-yellow-2: hsl(60, 10%, 19%); // (THEME 2: text)
+
+$violet-1: hsl(268, 75%, 9%); // (THEME 3: main background)
+$violet-2: hsl(268, 71%, 12%);
+// (THEME 3: toggle background, keypad background, screen background)
+$violet-3: hsl(281, 89%, 26%); // (THEME 3: key background)
+$magenta-1: hsl(285, 91%, 52%); // (THEME 3: key shadow)
+$cyan-3: hsl(176, 100%, 44%); //  (THEME 3: key background, toggle)
+$cyan-4: hsl(177, 92%, 70%); // (THEME 3: key shadow)
+$violet-4: hsl(268, 47%, 21%); // (THEME 3: key background)
+$magenta-2: hsl(290, 70%, 36%); // (THEME 3: key shadow)
+$yellow: hsl(52, 100%, 62%); // (THEME 3: text)
+$blue-7: hsl(198, 20%, 13%); // (THEME 3: text)
+
+.dark {
+  --main-bg: #{$blue-1};
+  --toggle-bg: #{$blue-2};
+  --keypad-bg: #{$blue-2};
+  --screen-bg: #{$blue-3};
+  --key-toggle: #{$red-1};
+  --key-bg-1: #{$red-1};
+  --key-shadow-1: #{$red-2};
+  --key-bg-2: #{$blue-4};
+  --key-shadow-2: #{$blue-5};
+  --key-bg-3: #{$gray-orange-1};
+  --key-shadow-3: #{$gray-orange-2};
+  --text-color-1: #{$blue-6};
+  --text-color-2: #{$white};
+  --text-color-3: #{$white};
+}
+
+.light {
+  --main-bg: #{$gray-1};
+  --toggle-bg: #{$gray-2};
+  --keypad-bg: #{$gray-2};
+  --screen-bg: #{$gray-3};
+  --key-toggle: #{$orange-1};
+  --key-bg-1: #{$cyan-1};
+  --key-shadow-1: #{$cyan-2};
+  --key-bg-2: #{$orange-1};
+  --key-shadow-2: #{$orange-2};
+  --key-bg-3: #{$gray-yellow-1};
+  --key-shadow-3: #{$gray-orange-3};
+  --text-color-1: #{$gray-yellow-2};
+  --text-color-2: #{$white};
+  --text-color-3: #{$white};
+}
+
+.special {
+  --main-bg: #{$violet-1};
+  --toggle-bg: #{$violet-2};
+  --keypad-bg: #{$violet-2};
+  --screen-bg: #{$violet-2};
+  --key-toggle: #{$cyan-3};
+  --key-bg-1: #{$violet-3};
+  --key-shadow-1: #{$magenta-1};
+  --key-bg-2: #{$cyan-3};
+  --key-shadow-2: #{$cyan-4};
+  --key-bg-3: #{$violet-4};
+  --key-shadow-3: #{$magenta-2};
+  --text-color-1: #{$yellow};
+  --text-color-2: #{$white};
+  --text-color-3: #{$blue-7};
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Dark theme styles go here */
+  body {
+    --main-bg: #{$blue-1};
+    --toggle-bg: #{$blue-2};
+    --keypad-bg: #{$blue-2};
+    --screen-bg: #{$blue-3};
+    --key-toggle: #{$red-1};
+    --key-bg-1: #{$red-1};
+    --key-shadow-1: #{$red-2};
+    --key-bg-2: #{$blue-4};
+    --key-shadow-2: #{$blue-5};
+    --key-bg-3: #{$gray-orange-1};
+    --key-shadow-3: #{$gray-orange-2};
+    --text-color-1: #{$blue-6};
+    --text-color-2: #{$white};
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  /* Light theme styles go here */
+  body {
+    --main-bg: #{$gray-1};
+    --toggle-bg: #{$gray-2};
+    --keypad-bg: #{$gray-2};
+    --screen-bg: #{$gray-3};
+    --key-toggle: #{$orange-1};
+    --key-bg-1: #{$cyan-1};
+    --key-shadow-1: #{$cyan-2};
+    --key-bg-2: #{$orange-1};
+    --key-shadow-2: #{$orange-2};
+    --key-bg-3: #{$gray-yellow-1};
+    --key-shadow-3: #{$gray-orange-3};
+    --text-color-1: #{$gray-yellow-2};
+    --text-color-2: #{$white};
+  }
+}
