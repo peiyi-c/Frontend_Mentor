@@ -37,7 +37,6 @@ $blue-7: hsl(198, 20%, 13%); // (THEME 3: text)
 
 /* TOGGLE SIZE VALUES */
 $radio-diameter: 15px;
-
 $radio-padding: 2px;
 
 body.dark {
@@ -236,5 +235,17 @@ body {
       background-color: var(--key-bg-1);
       box-shadow: 0px 3px 0px 0px var(--key-shadow-1);
     }
+  }
+}
+
+.footer {
+  text-align: center;
+  color: var(--key-toggle);
+  font-weight: normal;
+  a {
+    color: var(--key-toggle);
+  }
+  span {
+    font-size: 12px;
   }
 }
