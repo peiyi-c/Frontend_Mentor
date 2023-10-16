@@ -26,6 +26,9 @@ function App() {
           </div>
         </div>
       </header>
+      <nav className="nav container">
+        <h1 className="nav__screen">399,25</h1>
+      </nav>
     </>
   );
 }

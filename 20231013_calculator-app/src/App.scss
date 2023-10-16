@@ -177,3 +177,11 @@ body {
     }
   }
 }
+.nav {
+  height: 90px;
+  width: 100%;
+  border: 1px solid salmon; // test
+
+  background-color: var(--screen-bg);
+  text-align: right;
+}
