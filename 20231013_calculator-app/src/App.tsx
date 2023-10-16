@@ -30,18 +30,59 @@ function App() {
         <h1 className="nav__screen">399,25</h1>
       </nav>
       <main className="main container">
-        <div className="main__key">
+        <div className="main__key key-3">
           <h2>7</h2>
         </div>
-        <div className="main__key">
+        <div className="main__key key-3">
           <h2>8</h2>
         </div>
-        <div className="main__key">
+        <div className="main__key key-3">
           <h2>9</h2>
         </div>
-
-        <div className="main__key">
+        <div className="main__key key-1">
           <h2>DEL</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>4</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>5</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>6</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>+</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>1</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>2</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>3</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>-</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>.</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>0</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>/</h2>
+        </div>
+        <div className="main__key key-3">
+          <h2>x</h2>
+        </div>
+        <div className="main__key-lg key-1">
+          <h2>RESET</h2>
+        </div>
+        <div className="main__key-lg key-2">
+          <h2>=</h2>
         </div>
       </main>
     </>

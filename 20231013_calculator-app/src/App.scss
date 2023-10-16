@@ -46,12 +46,13 @@ body.dark {
   --keypad-bg: #{$blue-2};
   --screen-bg: #{$blue-3};
   --key-toggle: #{$red-1};
-  --key-bg-1: #{$red-1};
-  --key-shadow-1: #{$red-2};
-  --key-bg-2: #{$blue-4};
-  --key-shadow-2: #{$blue-5};
+  --key-bg-2: #{$red-1};
+  --key-shadow-2: #{$red-2};
+  --key-bg-1: #{$blue-4};
+  --key-shadow-1: #{$blue-5};
   --key-bg-3: #{$gray-orange-1};
   --key-shadow-3: #{$gray-orange-2};
+  --text-color-top: #{$white};
   --text-color-1: #{$blue-6};
   --text-color-2: #{$white};
   --text-color-3: #{$white};
@@ -69,6 +70,7 @@ body.light {
   --key-shadow-2: #{$orange-2};
   --key-bg-3: #{$gray-yellow-1};
   --key-shadow-3: #{$gray-orange-3};
+  --text-color-top: #{$gray-yellow-2};
   --text-color-1: #{$gray-yellow-2};
   --text-color-2: #{$white};
   --text-color-3: #{$white};
@@ -86,6 +88,7 @@ body.special {
   --key-shadow-2: #{$cyan-4};
   --key-bg-3: #{$violet-4};
   --key-shadow-3: #{$magenta-2};
+  --text-color-top: #{$yellow};
   --text-color-1: #{$yellow};
   --text-color-2: #{$white};
   --text-color-3: #{$blue-7};
@@ -98,14 +101,16 @@ body.special {
     --keypad-bg: #{$blue-2};
     --screen-bg: #{$blue-3};
     --key-toggle: #{$red-1};
-    --key-bg-1: #{$red-1};
-    --key-shadow-1: #{$red-2};
-    --key-bg-2: #{$blue-4};
-    --key-shadow-2: #{$blue-5};
+    --key-bg-2: #{$red-1};
+    --key-shadow-2: #{$red-2};
+    --key-bg-1: #{$blue-4};
+    --key-shadow-1: #{$blue-5};
     --key-bg-3: #{$gray-orange-1};
     --key-shadow-3: #{$gray-orange-2};
+    --text-color-top: #{$white};
     --text-color-1: #{$blue-6};
     --text-color-2: #{$white};
+    --text-color-3: #{$white};
   }
   @media (prefers-color-scheme: light) {
     --main-bg: #{$gray-1};
@@ -119,14 +124,17 @@ body.special {
     --key-shadow-2: #{$orange-2};
     --key-bg-3: #{$gray-yellow-1};
     --key-shadow-3: #{$gray-orange-3};
+    --text-color-top: #{$gray-yellow-2};
     --text-color-1: #{$gray-yellow-2};
     --text-color-2: #{$white};
+    --text-color-3: #{$white};
   }
 }
 
 body {
   background-color: var(--main-bg);
   padding: 25px;
+  color: var(--text-color-1);
 }
 .container {
   margin-top: 20px;
@@ -139,8 +147,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  color: var(--text-color-top);
   &__title {
+    h3 {
+      font-size: 30px;
+    }
   }
   &__description {
     align-self: end;
@@ -181,9 +192,9 @@ body {
   height: 90px;
   width: 100%;
   border: 1px solid salmon; // test
-
-  background-color: var(--screen-bg);
   text-align: right;
+  color: var(--text-color-top);
+  background-color: var(--screen-bg);
 }
 .main {
   // height: 420px;
@@ -195,14 +206,35 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: calc(10px + 2vw);
+
   &__key {
     min-height: 60px;
     width: 100%;
-    background-color: var(--key-bg-3);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 0px 3px 0px 0px var(--key-shadow-3);
+    &:hover {
+      cursor: pointer;
+    }
+    &-lg {
+      @extend .main__key;
+      grid-column: span 2;
+    }
+    &.key-3 {
+      color: var(--text-color-1);
+      background-color: var(--key-bg-3);
+      box-shadow: 0px 3px 0px 0px var(--key-shadow-3);
+    }
+    &.key-2 {
+      color: var(--text-color-3);
+      background-color: var(--key-bg-2);
+      box-shadow: 0px 3px 0px 0px var(--key-shadow-2);
+    }
+    &.key-1 {
+      color: var(--text-color-2);
+      background-color: var(--key-bg-1);
+      box-shadow: 0px 3px 0px 0px var(--key-shadow-1);
+    }
   }
 }
