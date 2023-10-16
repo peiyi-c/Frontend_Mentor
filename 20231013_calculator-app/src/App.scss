@@ -185,3 +185,24 @@ body {
   background-color: var(--screen-bg);
   text-align: right;
 }
+.main {
+  // height: 420px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid rgb(153, 240, 140); // test
+  background-color: var(--keypad-bg);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: calc(10px + 2vw);
+  &__key {
+    min-height: 60px;
+    width: 100%;
+    background-color: var(--key-bg-3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 3px 0px 0px var(--key-shadow-3);
+  }
+}

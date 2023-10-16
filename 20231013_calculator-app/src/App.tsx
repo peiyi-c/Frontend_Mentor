@@ -29,6 +29,21 @@ function App() {
       <nav className="nav container">
         <h1 className="nav__screen">399,25</h1>
       </nav>
+      <main className="main container">
+        <div className="main__key">
+          <h2>7</h2>
+        </div>
+        <div className="main__key">
+          <h2>8</h2>
+        </div>
+        <div className="main__key">
+          <h2>9</h2>
+        </div>
+
+        <div className="main__key">
+          <h2>DEL</h2>
+        </div>
+      </main>
     </>
   );
 }
