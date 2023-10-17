@@ -1,17 +1,20 @@
 import { useState, useEffect } from "react";
 import "./App.scss";
+
 import Key from "./components/Key";
 import keys from "./calculator";
 
-function App() {
-  const [colorMode, setColorMode] = useState("");
-  const [calculate, setCalculate] = useState("");
+import { ColorMode, KeyType } from "./types";
 
-  const getLocalStorage = (): string => {
+function App() {
+  const [colorMode, setColorMode] = useState<ColorMode>("");
+  const [calculate, setCalculate] = useState<string[]>([]);
+
+  const getLocalStorage = (): ColorMode => {
     return JSON.parse(localStorage.getItem("colorMode")) || "";
   };
 
-  const setBodyClass = (mode: string) => {
+  const setBodyClass = (mode: ColorMode) => {
     document.body.className = mode;
   };
 
@@ -22,17 +25,19 @@ function App() {
     } else return;
   }, []);
 
-  const setLocalStorage = (mode: string) => {
+  const setLocalStorage = (mode: ColorMode) => {
     localStorage.setItem("colorMode", JSON.stringify(mode));
   };
 
-  const onClick = (e: any): void => {
-    const mode = e.target.id;
+  const toggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const mode = event.target.id as ColorMode;
     setColorMode(mode);
     setBodyClass(mode);
     setLocalStorage(mode);
   };
-
+  const calc = () => {
+    console.log("click");
+  };
   return (
     <>
       <header className="header">
@@ -59,15 +64,15 @@ function App() {
             aria-hidden="true"
           ></span>
           <div className="header__toggle-element">
-            <input onClick={onClick} id="dark" name="color-mode" type="radio" />
+            <input onChange={toggle} id="dark" name="color-mode" type="radio" />
             <input
-              onClick={onClick}
+              onChange={toggle}
               id="light"
               name="color-mode"
               type="radio"
             />
             <input
-              onClick={onClick}
+              onChange={toggle}
               id="special"
               name="color-mode"
               type="radio"
@@ -76,11 +81,20 @@ function App() {
         </fieldset>
       </header>
       <nav className="nav container">
+        {/* {calculate.join("") || ""} */}
         <h1 className="nav__screen">{calculate}</h1>
       </nav>
       <main className="main container">
-        {keys.map((key: { name: string; style: string }) => {
-          return <Key name={key.name} style={key.style} key={key.name} />;
+        {keys.map((key: KeyType) => {
+          return (
+            <Key
+              name={key.name}
+              style={key.style}
+              type={key.type}
+              key={key.name}
+              onClick={calc}
+            />
+          );
         })}
       </main>
       <footer className="footer">

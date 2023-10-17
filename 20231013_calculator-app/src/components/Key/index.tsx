@@ -1,14 +1,19 @@
 import "./index.scss";
+import { KeyType } from "../../types";
 
-type Key = {
-  style: string;
-  name: string;
-};
-function Key({ style, name }: Key) {
+function Key({ style, name, type, onClick }: KeyType) {
+  // const calc = () => {
+  //   console.log("click");
+  // };
   return (
-    <div className={style} data-key={name}>
+    <button
+      className={style}
+      data-key={name}
+      data-type={type}
+      onClick={onClick}
+    >
       <h2>{name}</h2>
-    </div>
+    </button>
   );
 }
 
