@@ -2,12 +2,16 @@ import { useState, useRef, useEffect } from "react";
 import "./App.scss";
 
 function App() {
-  const [colorMode, setColorMode] = useState("dark");
-  const thumbRef = useRef(null);
+  const [colorMode, setColorMode] = useState("");
 
   const getLocalStorage = (): string => {
-    return JSON.parse(localStorage.getItem("colorMode")) || " ";
+    return JSON.parse(localStorage.getItem("colorMode")) || "";
   };
+
+  const setBodyClass = (mode: string) => {
+    document.body.className = mode;
+  };
+
   useEffect(() => {
     if (getLocalStorage()) {
       setColorMode(getLocalStorage());
@@ -18,13 +22,9 @@ function App() {
   const setLocalStorage = (mode: string) => {
     localStorage.setItem("colorMode", JSON.stringify(mode));
   };
-  const setBodyClass = (mode: string) => {
-    document.body.className = mode;
-  };
 
   const onClick = (e: any): void => {
     const mode = e.target.id;
-    console.log(mode);
     setColorMode(mode);
     setBodyClass(mode);
     setLocalStorage(mode);
@@ -52,8 +52,7 @@ function App() {
             </label>
           </div>
           <span
-            ref={thumbRef}
-            className="header__toggle-thumb"
+            className={`header__toggle-thumb ${colorMode}`}
             aria-hidden="true"
           ></span>
           <div className="header__toggle-element">

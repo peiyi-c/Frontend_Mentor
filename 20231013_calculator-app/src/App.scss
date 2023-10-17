@@ -168,11 +168,25 @@ body {
       height: $radio-diameter;
       position: absolute;
       top: 36px;
-      left: 5px;
 
       border-radius: 50%;
       background-color: var(--key-toggle);
+
+      opacity: 0;
       transition: all 150ms ease-in-out;
+
+      &.dark {
+        left: 5px;
+        opacity: 1;
+      }
+      &.light {
+        left: calc(5px + 22px);
+        opacity: 1;
+      }
+      &.special {
+        left: calc(5px + 22px + 22px);
+        opacity: 1;
+      }
     }
     &-element {
       border-radius: $radio-diameter;
