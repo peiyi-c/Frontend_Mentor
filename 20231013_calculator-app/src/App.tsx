@@ -1,8 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.scss";
+import Key from "./components/Key";
+import keys from "./calculator";
 
 function App() {
   const [colorMode, setColorMode] = useState("");
+  const [calculate, setCalculate] = useState("");
 
   const getLocalStorage = (): string => {
     return JSON.parse(localStorage.getItem("colorMode")) || "";
@@ -73,63 +76,12 @@ function App() {
         </fieldset>
       </header>
       <nav className="nav container">
-        <h1 className="nav__screen">399,25</h1>
+        <h1 className="nav__screen">{calculate}</h1>
       </nav>
       <main className="main container">
-        <div className="main__key key-3">
-          <h2>7</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>8</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>9</h2>
-        </div>
-        <div className="main__key key-1">
-          <h2>DEL</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>4</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>5</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>6</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>+</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>1</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>2</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>3</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>-</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>.</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>0</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>/</h2>
-        </div>
-        <div className="main__key key-3">
-          <h2>x</h2>
-        </div>
-        <div className="main__key-lg key-1">
-          <h2>RESET</h2>
-        </div>
-        <div className="main__key-lg key-2">
-          <h2>=</h2>
-        </div>
+        {keys.map((key: { name: string; style: string }) => {
+          return <Key name={key.name} style={key.style} key={key.name} />;
+        })}
       </main>
       <footer className="footer">
         <span>
