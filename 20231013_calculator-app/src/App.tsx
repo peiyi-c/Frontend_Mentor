@@ -1,13 +1,35 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./App.scss";
 
 function App() {
-  const [colorMode, setColorMode] = useState("");
+  const [colorMode, setColorMode] = useState("dark");
   const thumbRef = useRef(null);
-  const toggleColor = (e: any): void => {
-    console.log(e.target);
-    setColorMode(e.target.id);
+
+  const getLocalStorage = (): string => {
+    return JSON.parse(localStorage.getItem("colorMode")) || " ";
   };
+  useEffect(() => {
+    if (getLocalStorage()) {
+      setColorMode(getLocalStorage());
+      setBodyClass(getLocalStorage());
+    } else return;
+  }, []);
+
+  const setLocalStorage = (mode: string) => {
+    localStorage.setItem("colorMode", JSON.stringify(mode));
+  };
+  const setBodyClass = (mode: string) => {
+    document.body.className = mode;
+  };
+
+  const onClick = (e: any): void => {
+    const mode = e.target.id;
+    console.log(mode);
+    setColorMode(mode);
+    setBodyClass(mode);
+    setLocalStorage(mode);
+  };
+
   return (
     <>
       <header className="header">
@@ -35,20 +57,15 @@ function App() {
             aria-hidden="true"
           ></span>
           <div className="header__toggle-element">
+            <input onClick={onClick} id="dark" name="color-mode" type="radio" />
             <input
-              onClick={toggleColor}
-              id="dark"
-              name="color-mode"
-              type="radio"
-            />
-            <input
-              onClick={toggleColor}
+              onClick={onClick}
               id="light"
               name="color-mode"
               type="radio"
             />
             <input
-              onClick={toggleColor}
+              onClick={onClick}
               id="special"
               name="color-mode"
               type="radio"
