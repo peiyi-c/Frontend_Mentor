@@ -17,8 +17,13 @@ p,
 figure,
 blockquote,
 dl,
-dd {
+dd,
+fieldset {
   margin: 0;
+}
+fieldset {
+  padding: 0;
+  border: none;
 }
 html:focus-within {
   scroll-behavior: smooth;
@@ -53,15 +58,12 @@ body {
 
 #root {
   flex: 1;
-
   max-width: 540px;
   min-height: 667px;
   max-height: 725px;
   display: flex;
   flex-direction: column;
-
   margin: 0 auto;
-
   border: 1px solid sandybrown; /*test */
 }
 

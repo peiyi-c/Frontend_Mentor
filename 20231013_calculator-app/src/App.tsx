@@ -1,12 +1,23 @@
+import { useState, useRef } from "react";
 import "./App.scss";
 
 function App() {
+  const [colorMode, setColorMode] = useState("");
+  const thumbRef = useRef(null);
+  const toggleColor = (e: any): void => {
+    console.log(e.target);
+    setColorMode(e.target.id);
+  };
   return (
     <>
       <header className="header">
         <h3 className="header__title">calc</h3>
         <span className="header__description">THEME</span>
-        <div className="header__toggle">
+        <fieldset
+          className="header__toggle"
+          aria-label="theme toggle"
+          role="radiogroup"
+        >
           <div className="header__toggle-name" aria-hidden="true">
             <label htmlFor="dark">
               <span>1</span>
@@ -18,13 +29,32 @@ function App() {
               <span>3</span>
             </label>
           </div>
-          <span className="header__toggle-thumb" aria-hidden="true"></span>
-          <div className="header__toggle-element" role="switch">
-            <input id="dark" name="color-mode" type="radio" />
-            <input id="light" name="color-mode" type="radio" />
-            <input id="special" name="color-mode" type="radio" />
+          <span
+            ref={thumbRef}
+            className="header__toggle-thumb"
+            aria-hidden="true"
+          ></span>
+          <div className="header__toggle-element">
+            <input
+              onClick={toggleColor}
+              id="dark"
+              name="color-mode"
+              type="radio"
+            />
+            <input
+              onClick={toggleColor}
+              id="light"
+              name="color-mode"
+              type="radio"
+            />
+            <input
+              onClick={toggleColor}
+              id="special"
+              name="color-mode"
+              type="radio"
+            />
           </div>
-        </div>
+        </fieldset>
       </header>
       <nav className="nav container">
         <h1 className="nav__screen">399,25</h1>
