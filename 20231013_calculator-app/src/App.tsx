@@ -35,8 +35,41 @@ function App() {
     setBodyClass(mode);
     setLocalStorage(mode);
   };
-  const calc = () => {
-    console.log("click");
+
+  const calc = (name: string, type: string) => {
+    console.log(name);
+    if (type === "num" || type === "operator") {
+      if (name === "x") {
+        name = "*";
+      }
+      setCalculate((prev) => [...prev, name]);
+    } else if (type === "other") {
+      if (name === "DEL") {
+        setCalculate(["0"]);
+      }
+      if (name === "RESET") {
+        setCalculate((prev) => (prev = prev.slice(0, prev.length - 1)));
+      }
+      if (name === "=") {
+        // return if nothing in screen
+        if (!calculate.length) {
+          return;
+        }
+        // eliminate "0" at the beginning
+        for (let i = 0; i < calculate.length; i++) {
+          let checked = false;
+          if (!checked && calculate[i] === "0") {
+            calculate[i] = "";
+          }
+          if (calculate[i] !== "0") {
+            checked = true;
+          }
+        }
+        setCalculate([eval(calculate.join(""))]);
+      }
+    } else {
+      return;
+    }
   };
   return (
     <>
@@ -81,7 +114,6 @@ function App() {
         </fieldset>
       </header>
       <nav className="nav container">
-        {/* {calculate.join("") || ""} */}
         <h1 className="nav__screen">{calculate}</h1>
       </nav>
       <main className="main container">

@@ -2,7 +2,7 @@ export type KeyType = {
   name: string;
   type: string;
   style?: string;
-  onClick?: () => void;
+  onClick?: (name: string, type: string) => void;
 };
 
 export type ColorMode = "" | "dark" | "light" | "special";
