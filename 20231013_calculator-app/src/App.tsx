@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.scss";
 
 import Key from "./components/Key";
@@ -9,6 +9,7 @@ import { ColorMode, KeyType } from "./types";
 function App() {
   const [colorMode, setColorMode] = useState<ColorMode>("");
   const [calculate, setCalculate] = useState<string[]>([]);
+  const [calculated, setCalculated] = useState<boolean>(false);
 
   const getLocalStorage = (): ColorMode => {
     return JSON.parse(localStorage.getItem("colorMode")) || "";
@@ -25,19 +26,31 @@ function App() {
     } else return;
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("keydown", focus);
+    return () => {
+      window.removeEventListener("keydown", focus);
+    };
+  });
+
   const setLocalStorage = (mode: ColorMode) => {
     localStorage.setItem("colorMode", JSON.stringify(mode));
   };
 
-  const toggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const toggleColor = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const mode = event.target.id as ColorMode;
     setColorMode(mode);
     setBodyClass(mode);
     setLocalStorage(mode);
   };
 
-  const calc = (name: string, type: string) => {
+  const handleCalc = (name: string, type: string) => {
     console.log(name);
+    // if just calculated, remove the previous result
+    if (calculated) {
+      setCalculate([]);
+      setCalculated(false);
+    }
     if (type === "num" || type === "operator") {
       if (name === "x") {
         name = "*";
@@ -55,17 +68,8 @@ function App() {
         if (!calculate.length) {
           return;
         }
-        // eliminate "0" at the beginning
-        for (let i = 0; i < calculate.length; i++) {
-          let checked = false;
-          if (!checked && calculate[i] === "0") {
-            calculate[i] = "";
-          }
-          if (calculate[i] !== "0") {
-            checked = true;
-          }
-        }
         setCalculate([eval(calculate.join(""))]);
+        setCalculated(true);
       }
     } else {
       return;
@@ -98,15 +102,20 @@ function App() {
             aria-hidden="true"
           ></span>
           <div className="header__toggle-element">
-            <input onChange={toggle} id="dark" name="color-mode" type="radio" />
             <input
-              onChange={toggle}
+              onChange={toggleColor}
+              id="dark"
+              name="color-mode"
+              type="radio"
+            />
+            <input
+              onChange={toggleColor}
               id="light"
               name="color-mode"
               type="radio"
             />
             <input
-              onChange={toggle}
+              onChange={toggleColor}
               id="special"
               name="color-mode"
               type="radio"
@@ -125,7 +134,7 @@ function App() {
               style={key.style}
               type={key.type}
               key={key.name}
-              onClick={calc}
+              onClick={handleCalc}
             />
           );
         })}
