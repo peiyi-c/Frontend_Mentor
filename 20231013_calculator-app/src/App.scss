@@ -212,6 +212,20 @@ body {
   text-align: right;
   color: var(--text-color-top);
   background-color: var(--screen-bg);
+  &__screen {
+  }
+  // &__input {
+  //   display: none; // test
+  //   min-height: calc(90px / 2);
+  //   width: 100%;
+  //   text-align: right; // copy
+  //   color: var(--text-color-top); // copy
+  //   background-color: var(--screen-bg); // copy
+  //   font-size: 48px;
+  //   &:focus {
+  //     outline: none;
+  //   }
+  // }
 }
 .main {
   // height: 420px;

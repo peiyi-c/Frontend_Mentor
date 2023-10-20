@@ -1,45 +1,45 @@
-import { KeyType } from "./types";
-const keys: KeyType[] = [
+import { Keys } from "./types";
+const keys: Keys[] = [
   {
     name: "7",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 103,
   },
   {
     name: "8",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 104,
   },
   {
     name: "9",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 105,
   },
   {
     name: "DEL",
     style: "main__key key-1",
-    type: "other",
+    type: "delete-digit",
     keyCode: 46,
   },
   {
     name: "4",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 100,
   },
   {
     name: "5",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 101,
   },
   {
     name: "6",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 102,
   },
   {
@@ -51,19 +51,19 @@ const keys: KeyType[] = [
   {
     name: "1",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 97,
   },
   {
     name: "2",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 98,
   },
   {
     name: "3",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 99,
   },
   {
@@ -75,13 +75,13 @@ const keys: KeyType[] = [
   {
     name: ".",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 110,
   },
   {
     name: "0",
     style: "main__key key-3",
-    type: "num",
+    type: "add-digit",
     keyCode: 96,
   },
   {
@@ -99,13 +99,13 @@ const keys: KeyType[] = [
   {
     name: "RESET",
     style: "main__key-lg key-1",
-    type: "other",
+    type: "clear",
     keyCode: 27,
   },
   {
     name: "=",
     style: "main__key-lg key-2",
-    type: "other",
+    type: "evaluate",
     keyCode: 13,
   },
 ];

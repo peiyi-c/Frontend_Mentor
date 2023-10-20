@@ -32,10 +32,8 @@ input,
 button,
 textarea,
 select {
+  background-color: inherit;
   font: inherit;
-}
-
-button {
   border: none;
 }
 /* custom styles */

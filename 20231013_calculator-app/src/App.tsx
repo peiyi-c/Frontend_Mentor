@@ -1,81 +1,125 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import "./App.scss";
 
 import Key from "./components/Key";
 import keys from "./calculator";
-
-import { ColorMode, KeyType } from "./types";
+import { ColorMode, Keys } from "./types";
 
 function App() {
+  // color modes //
   const [colorMode, setColorMode] = useState<ColorMode>("");
-  const [calculate, setCalculate] = useState<string[]>([]);
-  const [calculated, setCalculated] = useState<boolean>(false);
 
-  const getLocalStorage = (): ColorMode => {
+  const getLocalStorage = (): ColorMode | "" => {
     return JSON.parse(localStorage.getItem("colorMode")) || "";
   };
-
   const setBodyClass = (mode: ColorMode) => {
     document.body.className = mode;
   };
-
   useEffect(() => {
     if (getLocalStorage()) {
       setColorMode(getLocalStorage());
       setBodyClass(getLocalStorage());
     } else return;
   }, []);
-
-  useEffect(() => {
-    window.addEventListener("keydown", focus);
-    return () => {
-      window.removeEventListener("keydown", focus);
-    };
-  });
-
   const setLocalStorage = (mode: ColorMode) => {
     localStorage.setItem("colorMode", JSON.stringify(mode));
   };
-
   const toggleColor = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const mode = event.target.id as ColorMode;
     setColorMode(mode);
     setBodyClass(mode);
     setLocalStorage(mode);
   };
+  // calculation logic //
+  const [prevOperand, setPrevOperand] = useState("");
+  const [currentOperand, setCurrentOperand] = useState("");
+  const [operator, setOperator] = useState("");
+  const [isEvaluated, setIsEvaluated] = useState(false);
+  const evalutate = () => {
+    const prev = parseFloat(prevOperand);
+    const current = parseFloat(currentOperand);
+    if (isNaN(prev) || isNaN(current)) return "";
 
-  const handleCalc = (name: string, type: string) => {
-    console.log(name);
-    // if just calculated, remove the previous result
-    if (calculated) {
-      setCalculate([]);
-      setCalculated(false);
+    let result: number;
+    switch (operator) {
+      case "+":
+        result = prev + current;
+        break;
+      case "-":
+        result = prev - current;
+        break;
+      case "x":
+        result = prev * current;
+        break;
+      case "/":
+        result = prev / current;
+        break;
     }
-    if (type === "num" || type === "operator") {
-      if (name === "x") {
-        name = "*";
-      }
-      setCalculate((prev) => [...prev, name]);
-    } else if (type === "other") {
-      if (name === "DEL") {
-        setCalculate(["0"]);
-      }
-      if (name === "RESET") {
-        setCalculate((prev) => (prev = prev.slice(0, prev.length - 1)));
-      }
-      if (name === "=") {
-        // return if nothing in screen
-        if (!calculate.length) {
+    return result.toString();
+  };
+  const handleCalculate = (name: string, type: string) => {
+    switch (type) {
+      case "add-digit": {
+        if (isEvaluated) {
+          setCurrentOperand(name);
+          setIsEvaluated(false);
+        } else if (currentOperand === "0" && name === "0") {
           return;
+        } else if (currentOperand === "." && currentOperand.includes(".")) {
+          return;
+        } else {
+          setCurrentOperand((prev) => prev + name);
         }
-        setCalculate([eval(calculate.join(""))]);
-        setCalculated(true);
+        break;
       }
-    } else {
-      return;
+      case "clear": {
+        setPrevOperand("");
+        setCurrentOperand("");
+        setOperator("");
+        break;
+      }
+      case "delete-digit": {
+        if (isEvaluated) {
+          setCurrentOperand("");
+          setIsEvaluated(false);
+        } else if (!currentOperand) {
+          return;
+        } else if (currentOperand.length === 1) {
+          setCurrentOperand("");
+        } else {
+          setCurrentOperand((prev) => prev.slice(0, -1));
+        }
+        break;
+      }
+      case "operator": {
+        if (!currentOperand && !prevOperand) {
+          return;
+        } else if (!prevOperand) {
+          setOperator((prev) => (prev = name));
+          setPrevOperand((prev) => (prev = currentOperand));
+          setCurrentOperand("");
+        } else if (!currentOperand) {
+          setOperator((prev) => (prev = name));
+        } else {
+          setOperator((prev) => (prev = name));
+          setPrevOperand(evalutate());
+          setCurrentOperand("");
+        }
+
+        break;
+      }
+      case "evaluate": {
+        if (!operator || !currentOperand || !prevOperand) {
+          return;
+        } else {
+          setCurrentOperand(evalutate());
+          setPrevOperand("");
+          setOperator("");
+          setIsEvaluated(true);
+        }
+      }
     }
   };
-
   return (
     <>
       <header className="header">
@@ -124,17 +168,21 @@ function App() {
         </fieldset>
       </header>
       <nav className="nav container">
-        <h1 className="nav__screen">{calculate}</h1>
+        <h1 className="nav__screen">
+          {prevOperand}
+          {operator}
+          {currentOperand}
+        </h1>
       </nav>
       <main className="main container">
-        {keys.map((key: KeyType) => {
+        {keys.map((key: Keys) => {
           return (
             <Key
               name={key.name}
               style={key.style}
               type={key.type}
               key={key.name}
-              onClick={handleCalc}
+              onClick={handleCalculate}
             />
           );
         })}
