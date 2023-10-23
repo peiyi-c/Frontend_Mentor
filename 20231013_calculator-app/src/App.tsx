@@ -35,6 +35,22 @@ function App() {
   const [currentOperand, setCurrentOperand] = useState("");
   const [operator, setOperator] = useState("");
   const [isEvaluated, setIsEvaluated] = useState(false);
+  const INTEGER_FORMATTER = new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: 0,
+  });
+  const format = (operand: string) => {
+    if (!operand) {
+      return;
+    } else {
+      const [integer, decimal] = operand.split(".");
+      if (operand.includes(".")) {
+        return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
+      } else {
+        return `${INTEGER_FORMATTER.format(integer)}`;
+      }
+    }
+  };
+
   const evalutate = () => {
     const prev = parseFloat(prevOperand);
     const current = parseFloat(currentOperand);
@@ -65,7 +81,7 @@ function App() {
           setIsEvaluated(false);
         } else if (currentOperand === "0" && name === "0") {
           return;
-        } else if (currentOperand === "." && currentOperand.includes(".")) {
+        } else if (currentOperand === "," && currentOperand.includes(",")) {
           return;
         } else {
           setCurrentOperand((prev) => prev + name);
@@ -169,9 +185,9 @@ function App() {
       </header>
       <nav className="nav container">
         <h1 className="nav__screen">
-          {prevOperand}
+          {format(prevOperand)}
           {operator}
-          {currentOperand}
+          {format(currentOperand)}
         </h1>
       </nav>
       <main className="main container">
