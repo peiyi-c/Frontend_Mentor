@@ -190,11 +190,12 @@ function App() {
               <span>3</span>
             </label>
           </div>
-          <span
-            className={`header__toggle-thumb ${colorMode}`}
-            aria-hidden="true"
-          ></span>
+
           <div className="header__toggle-element">
+            <span
+              className={`header__toggle-thumb ${colorMode}`}
+              aria-hidden="true"
+            ></span>
             <input
               onChange={toggleColor}
               id="dark"

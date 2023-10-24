@@ -50,22 +50,15 @@ select {
 }
 
 body {
-  margin: 0;
   min-width: 375px;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+  height: 100%;
+  padding: 5vh 3vw;
 }
 
 #root {
-  flex: 1;
+  margin: 10vh auto;
   max-width: 540px;
-  min-height: 667px;
-  max-height: 725px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+  height: clamp(667px, 100%, 725px);
 }
 
 a {

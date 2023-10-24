@@ -142,13 +142,12 @@ body.special {
 
 body {
   background-color: var(--main-bg);
-  padding: 25px;
   color: var(--text-color-1);
 }
 .container {
   margin-top: 20px;
-  padding: 25px;
-  border-radius: 10px; // test
+  padding: 5% 2%;
+  border-radius: 10px;
 }
 .header {
   width: 100%;
@@ -169,6 +168,7 @@ body {
   }
   &__toggle {
     position: relative;
+    right: 2px;
     transition: all 150ms ease-in-out;
     &:hover {
       .header__toggle-thumb {
@@ -176,8 +176,10 @@ body {
       }
     }
     &-name {
+      margin-left: $radio-padding;
       display: flex;
       justify-content: space-around;
+      gap: 5px;
     }
     &-thumb {
       display: block;
@@ -196,15 +198,16 @@ body {
         opacity: 1;
       }
       &.light {
-        left: calc(5px + 22px);
+        left: calc(5px + 30%);
         opacity: 1;
       }
       &.special {
-        left: calc(5px + 22px + 22px);
+        left: calc(5px + 30% + 30%);
         opacity: 1;
       }
     }
     &-element {
+      min-width: 70px;
       border-radius: $radio-diameter;
       background-color: var(--toggle-bg);
 
@@ -228,18 +231,16 @@ body {
   overflow: hidden;
 }
 .main {
-  // height: 420px;
   height: 100%;
   width: 100%;
   background-color: var(--keypad-bg);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: calc(10px + 2vw);
+  grid: repeat(5, 1fr) / repeat(4, 1fr);
+  column-gap: 2vw;
+  row-gap: 1vh;
 
   &__key {
     min-height: 60px;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -279,5 +280,15 @@ body {
   }
   span {
     font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .container {
+    padding: 5% 4%;
+  }
+  .main {
+    column-gap: 2.5vw;
+    row-gap: 2vh;
   }
 }
