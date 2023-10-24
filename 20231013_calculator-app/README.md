@@ -27,6 +27,9 @@ Users should be able to:
 - Have his/her initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
 
 ### Screenshot
+![Opera Snapshot_2023-10-24_175805_talented-memory surge sh](https://github.com/peiyi-c/Frontend_Mentor/assets/73789013/fcff4873-344f-4e96-a5b9-1c05eafb27c7)
+![Opera Snapshot_2023-10-24_175753_talented-memory surge sh](https://github.com/peiyi-c/Frontend_Mentor/assets/73789013/e5ecb4e8-c42e-4375-8537-93351ebff886)
+![Opera Snapshot_2023-10-24_175733_talented-memory surge sh](https://github.com/peiyi-c/Frontend_Mentor/assets/73789013/f36af53c-5b86-441c-aebb-231c3b12b374)
 
 ### Links
 
@@ -45,9 +48,15 @@ Users should be able to:
 - TypeScript
 
 ### What I learned
-
+#### HTML
+- Attribute <code> name="color-scheme" </code> in meta tag
+#### CSS
+- media query with <code>prefers-color-scheme</code>
+- Interpolation: CSS variables + SCSS variables
+#### JS
 - Use TypeScript in a React project.
 - Use <code>new Intl.NumberFormat()</code> to format integers
+  
 
 ### Continued development
 
