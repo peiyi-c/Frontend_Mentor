@@ -106,7 +106,7 @@ function App() {
       }
       case "delete-digit": {
         if (isEvaluated) {
-          setCurrentOperand("");
+          setCurrentOperand((prev) => prev.slice(0, -1));
           setIsEvaluated(false);
         } else if (!currentOperand) {
           return;
