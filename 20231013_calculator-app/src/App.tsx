@@ -18,27 +18,18 @@ function App() {
     }
   };
   const getColorPreference = (): ColorMode => {
-    return window.matchMedia("prefers-color-scheme: dark").matches
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
-      : window.matchMedia("prefers-color-scheme: light").matches
-      ? "light"
-      : "";
+      : "light"; // if no preference, deafult is light
   };
   const setBodyClass = (mode: ColorMode) => {
     document.body.className = mode;
   };
   useEffect(() => {
-    if (getLocalStorage() !== null) {
-      setColorMode(getLocalStorage());
-      setBodyClass(getLocalStorage());
-    } else if (getColorPreference() !== null) {
-      setColorMode(getColorPreference());
-      setBodyClass(getColorPreference());
-    } else {
-      setColorMode("dark");
-      setBodyClass("dark");
-    }
+    setColorMode(getLocalStorage() || getColorPreference());
+    setBodyClass(getLocalStorage() || getColorPreference());
   }, []);
+
   const setLocalStorage = (mode: ColorMode) => {
     localStorage.setItem("colorMode", JSON.stringify(mode));
   };
@@ -181,7 +172,7 @@ function App() {
   return (
     <>
       <header className="header">
-        <h3 className="header__title">calc</h3>
+        <h1 className="header__title">calc</h1>
         <span className="header__description">THEME</span>
         <fieldset
           className="header__toggle"
@@ -200,7 +191,7 @@ function App() {
             </label>
           </div>
           <span
-            className={`header__toggle-thumb ${colorMode || "dark"}`}
+            className={`header__toggle-thumb ${colorMode}`}
             aria-hidden="true"
           ></span>
           <div className="header__toggle-element">
