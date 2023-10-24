@@ -156,15 +156,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
   color: var(--text-color-top);
   &__title {
+    margin-right: auto;
     h3 {
       font-size: 30px;
     }
   }
   &__description {
     align-self: end;
-    margin-left: 45%;
   }
   &__toggle {
     position: relative;
