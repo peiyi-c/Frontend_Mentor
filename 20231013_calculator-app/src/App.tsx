@@ -138,10 +138,15 @@ function App() {
   };
   // calculate with keyboards //
   const handleKeyDown = (event: React.KeyboardEvent<Element>) => {
-    const eventKey = event.key;
+    let eventKey = event.key;
+    // de-DE Zifferblock
+    if (eventKey === ",") {
+      eventKey = ".";
+    }
     const indexOfKey = keys.findIndex((key) => {
       return key.key == eventKey;
     });
+
     if (indexOfKey === -1) {
       return;
     } else {
