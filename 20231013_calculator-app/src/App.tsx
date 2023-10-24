@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import "./App.scss";
 
@@ -10,7 +11,7 @@ function App() {
   const [colorMode, setColorMode] = useState<ColorMode>("");
 
   const getLocalStorage = (): ColorMode | "" => {
-    return JSON.parse(localStorage.getItem("colorMode")) || "";
+    return JSON.parse(localStorage.getItem("colorMode") || "{}") || "";
   };
   const setBodyClass = (mode: ColorMode) => {
     document.body.className = mode;
@@ -44,9 +45,9 @@ function App() {
     } else {
       const [integer, decimal] = operand.split(".");
       if (operand.includes(".")) {
-        return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
+        return `${INTEGER_FORMATTER.format(Number(integer))}.${decimal}`;
       } else {
-        return `${INTEGER_FORMATTER.format(integer)}`;
+        return `${INTEGER_FORMATTER.format(Number(integer))}`;
       }
     }
   };
@@ -56,7 +57,7 @@ function App() {
     const current = parseFloat(currentOperand);
     if (isNaN(prev) || isNaN(current)) return "";
 
-    let result: number;
+    let result: number = 0;
     switch (operator) {
       case "+":
         result = prev + current;
@@ -137,7 +138,7 @@ function App() {
     }
   };
   // calculate with keyboards //
-  const handleKeyDown = (event: React.KeyboardEvent<Element>) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     let eventKey = event.key;
     // de-DE Zifferblock
     if (eventKey === ",") {
