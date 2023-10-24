@@ -136,6 +136,24 @@ function App() {
       }
     }
   };
+  // calculate with keyboards //
+  const handleKeyDown = (event: React.KeyboardEvent<Element>) => {
+    const eventKey = event.key;
+    const indexOfKey = keys.findIndex((key) => {
+      return key.key == eventKey;
+    });
+    if (indexOfKey === -1) {
+      return;
+    } else {
+      handleCalculate(keys[indexOfKey]["name"], keys[indexOfKey]["type"]);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  });
   return (
     <>
       <header className="header">

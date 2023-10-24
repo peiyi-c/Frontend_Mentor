@@ -1,7 +1,7 @@
 export type Keys = {
   name: string;
   type: string;
-  keyCode?: number;
+  key?: string;
   style?: string;
 };
 
