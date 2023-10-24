@@ -9,18 +9,35 @@ import { ColorMode, Keys } from "./types";
 function App() {
   // color modes //
   const [colorMode, setColorMode] = useState<ColorMode>("");
-
-  const getLocalStorage = (): ColorMode | "" => {
-    return JSON.parse(localStorage.getItem("colorMode") || "{}") || "";
+  const getLocalStorage = (): ColorMode => {
+    const mode = localStorage.getItem("colorMode");
+    if (mode === null) {
+      return "";
+    } else {
+      return JSON.parse(mode);
+    }
+  };
+  const getColorPreference = (): ColorMode => {
+    return window.matchMedia("prefers-color-scheme: dark").matches
+      ? "dark"
+      : window.matchMedia("prefers-color-scheme: light").matches
+      ? "light"
+      : "";
   };
   const setBodyClass = (mode: ColorMode) => {
     document.body.className = mode;
   };
   useEffect(() => {
-    if (getLocalStorage()) {
+    if (getLocalStorage() !== null) {
       setColorMode(getLocalStorage());
       setBodyClass(getLocalStorage());
-    } else return;
+    } else if (getColorPreference() !== null) {
+      setColorMode(getColorPreference());
+      setBodyClass(getColorPreference());
+    } else {
+      setColorMode("dark");
+      setBodyClass("dark");
+    }
   }, []);
   const setLocalStorage = (mode: ColorMode) => {
     localStorage.setItem("colorMode", JSON.stringify(mode));
@@ -31,6 +48,7 @@ function App() {
     setBodyClass(mode);
     setLocalStorage(mode);
   };
+
   // calculation logic //
   const [prevOperand, setPrevOperand] = useState("");
   const [currentOperand, setCurrentOperand] = useState("");
@@ -182,7 +200,7 @@ function App() {
             </label>
           </div>
           <span
-            className={`header__toggle-thumb ${colorMode}`}
+            className={`header__toggle-thumb ${colorMode || "dark"}`}
             aria-hidden="true"
           ></span>
           <div className="header__toggle-element">
