@@ -53,6 +53,7 @@ body {
   min-width: 375px;
   height: 100%;
   padding: 5vh 3vw;
+  overflow: auto;
 }
 
 #root {
