@@ -36,6 +36,7 @@ select {
 /* custom styles */
 :root {
   font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;

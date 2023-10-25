@@ -47,14 +47,14 @@ body.light {
 }
 
 body {
-  font-size: 14px;
-  /* line-height: 1.5; */
+  line-height: 1.5; // test
   font-weight: 300;
   background-color: var(--background);
   color: var(--text);
-  .detail {
-    font-size: 16px;
-  }
+}
+
+.detail {
+  font-size: 1.14rem;
 }
 
 #root {
