@@ -1,0 +1,62 @@
+/* COLOR SCSS VARIABLES */
+$darkBlue-1: hsl(209, 23%, 22%);
+$darkBlue-2: hsl(200, 15%, 8%);
+$darkBlue-3: hsl(207, 26%, 17%);
+$darkGray: hsl(0, 0%, 52%);
+$lightGray: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+// - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+// - White (Light Mode Elements): hsl(0, 0%, 100%)
+
+// - White (Dark Mode Text): hsl(0, 0%, 100%)
+// - Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+
+// - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+// - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+
+// - White (Dark Mode Input): hsl(0, 0%, 100%)
+// - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+
+body.dark {
+  --background: #{$darkBlue-3};
+  --text: #{$white};
+  --input: #{$white};
+  --elements: #{$darkBlue-1};
+}
+body.light {
+  --background: #{$lightGray};
+  --text: #{$darkBlue-2};
+  --input: #{$darkGray};
+  --elements: #{$white};
+}
+
+:root {
+  @media (prefers-color-scheme: dark) {
+    --background: #{$darkBlue-3};
+    --text: #{$white};
+    --input: #{$white};
+    --elements: #{$darkBlue-1};
+  }
+  @media (prefers-color-scheme: light) {
+    --background: #{$lightGray};
+    --text: #{$darkBlue-2};
+    --input: #{$darkGray};
+    --elements: #{$white};
+  }
+}
+
+body {
+  font-size: 14px;
+  /* line-height: 1.5; */
+  font-weight: 300;
+  background-color: var(--background);
+  color: var(--text);
+  .detail {
+    font-size: 16px;
+  }
+}
+
+#root {
+  margin: 0 auto;
+}
