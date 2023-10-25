@@ -25,16 +25,53 @@ function App() {
   const setBodyClass = (mode: ColorMode) => {
     document.body.className = mode;
   };
+  const formatToggle = (mode: ColorMode): string => {
+    let value: string;
+    switch (mode) {
+      case "dark":
+        value = "1";
+        break;
+      case "light":
+        value = "2";
+        break;
+      case "special":
+        value = "3";
+        break;
+      default:
+        value = "2"; // cuz deafult is light
+    }
+    return value;
+  };
   useEffect(() => {
     setColorMode(getLocalStorage() || getColorPreference());
-    setBodyClass(getLocalStorage() || getColorPreference());
   }, []);
+
+  useEffect(() => {
+    setBodyClass(colorMode);
+  }, [colorMode]);
 
   const setLocalStorage = (mode: ColorMode) => {
     localStorage.setItem("colorMode", JSON.stringify(mode));
   };
-  const toggleColor = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const mode = event.target.id as ColorMode;
+
+  const handleToggleColor = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const modeValue = event.target.value;
+    let mode: ColorMode;
+    switch (modeValue) {
+      case "1":
+        mode = "dark";
+        break;
+      case "2":
+        mode = "light";
+        break;
+      case "3":
+        mode = "special";
+        break;
+      default:
+        mode = "dark";
+    }
     setColorMode(mode);
     setBodyClass(mode);
     setLocalStorage(mode);
@@ -48,7 +85,7 @@ function App() {
   const INTEGER_FORMATTER = new Intl.NumberFormat("en-US", {
     maximumFractionDigits: 0,
   });
-  const format = (operand: string) => {
+  const formatOperand = (operand: string) => {
     if (!operand) {
       return;
     } else {
@@ -89,9 +126,9 @@ function App() {
         if (isEvaluated) {
           setCurrentOperand(name);
           setIsEvaluated(false);
-        } else if (currentOperand === "0" && name === "0") {
+        } else if (name === "0" && currentOperand === "0") {
           return;
-        } else if (currentOperand === "," && currentOperand.includes(",")) {
+        } else if (name === "." && currentOperand.includes(".")) {
           return;
         } else {
           setCurrentOperand((prev) => prev + name);
@@ -171,60 +208,36 @@ function App() {
   });
   return (
     <>
-      <header className="header">
+      <header className="header" role="banner">
         <h1 className="header__title">calc</h1>
         <span className="header__description">THEME</span>
-        <fieldset
-          className="header__toggle"
-          aria-label="theme toggle"
-          role="radiogroup"
-        >
-          <div className="header__toggle-name" aria-hidden="true">
-            <label htmlFor="dark">
-              <span>1</span>
-            </label>
-            <label htmlFor="light">
-              <span>2</span>
-            </label>
-            <label htmlFor="special">
-              <span>3</span>
-            </label>
-          </div>
-
+        <fieldset className="header__toggle">
+          <label htmlFor="toggle-theme" className="header__toggle-name">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+          </label>
           <div className="header__toggle-element">
-            <span
-              className={`header__toggle-thumb ${colorMode}`}
-              aria-hidden="true"
-            ></span>
             <input
-              onChange={toggleColor}
-              id="dark"
-              name="color-mode"
-              type="radio"
-            />
-            <input
-              onChange={toggleColor}
-              id="light"
-              name="color-mode"
-              type="radio"
-            />
-            <input
-              onChange={toggleColor}
-              id="special"
-              name="color-mode"
-              type="radio"
+              id="toggle-theme"
+              type="range"
+              min="1"
+              max="3"
+              step="1"
+              value={formatToggle(colorMode)}
+              onChange={handleToggleColor}
             />
           </div>
         </fieldset>
       </header>
-      <nav className="nav container">
+      <nav className="nav container" role="navigation">
         <h1 className="nav__screen">
-          {format(prevOperand)}
+          {formatOperand(prevOperand)}
           {operator}
-          {format(currentOperand)}
+          {formatOperand(currentOperand)}
         </h1>
       </nav>
-      <main className="main container">
+      <main className="main container" role="main">
         {keys.map((key: Keys) => {
           return (
             <Key
@@ -237,7 +250,7 @@ function App() {
           );
         })}
       </main>
-      <footer className="footer">
+      <footer className="footer" role="contentinfo">
         <span>
           Challenge by{" "}
           <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
