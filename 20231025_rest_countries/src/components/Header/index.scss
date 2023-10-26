@@ -30,16 +30,33 @@ header {
 .nav {
   &__toggle {
     display: flex;
+    align-items: center;
     gap: 10px;
     color: var(--text);
     font-size: 1rem;
-    &-icon {
-      color: inherit;
-      font-size: inherit;
+    &.light {
+      ion-icon[name="moon-outline"] {
+        display: none;
+      }
+      ion-icon[name="moon"] {
+        display: block;
+      }
     }
-    &-name {
-      color: inherit;
-      font-size: inherit;
+    &.dark {
+      ion-icon[name="moon-outline"] {
+        display: block;
+      }
+      ion-icon[name="moon"] {
+        display: none;
+      }
     }
+  }
+  &__icon {
+    color: inherit;
+    font-size: inherit;
+  }
+  &-name {
+    color: inherit;
+    font-size: inherit;
   }
 }

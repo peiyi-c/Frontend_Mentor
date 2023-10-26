@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import { createContext, useState } from "react";
 
-export const ThemeContext = React.createContext();
+export const ThemeContext = createContext();
 
 export const ThemeMessage = ({ children, initialTheme }) => {
   const [theme, setTheme] = useState(initialTheme);
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
