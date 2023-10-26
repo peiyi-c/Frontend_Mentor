@@ -21,21 +21,21 @@ export const Header = () => {
           <div className="header-headline">
             <h1>Where in the world?</h1>
           </div>
-          <nav className="nav" role="navigation" aria-label="Color-Toggle">
-            <button onClick={handleClick} className={`nav__toggle ${theme}`}>
+          <div className="theme" aria-label="Color-Toggle">
+            <button onClick={handleClick} className={`theme__toggle ${theme}`}>
               <ion-icon
-                className="nav__toggle__icon"
+                className="theme__toggle__icon"
                 name="moon-outline"
                 aria-hidden="true"
               ></ion-icon>
               <ion-icon
-                className="nav__toggle__icon"
+                className="theme__toggle__icon"
                 name="moon"
                 aria-hidden="true"
               ></ion-icon>
-              <span className="nav__toggle-name">Dark Mode</span>
+              <span className="theme__toggle-name">Dark Mode</span>
             </button>
-          </nav>
+          </div>
         </div>
       </header>
     </>
