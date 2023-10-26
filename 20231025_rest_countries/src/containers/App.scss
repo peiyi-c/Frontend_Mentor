@@ -23,7 +23,7 @@ body.dark {
   --text: #{$white};
   --input: #{$white};
   --elements: #{$darkBlue-1};
-  --shadow: #{$darkGray};
+  --shadow: #{$darkBlue-1};
 }
 body.light {
   --background: #{$lightGray};
@@ -39,7 +39,7 @@ body.light {
     --text: #{$white};
     --input: #{$white};
     --elements: #{$darkBlue-1};
-    --shadow: #{$darkGray};
+    --shadow: #{$darkBlue-1};
   }
   @media (prefers-color-scheme: light) {
     --background: #{$lightGray};
