@@ -18,19 +18,23 @@ $white: hsl(0, 0%, 100%);
 // - White (Dark Mode Input): hsl(0, 0%, 100%)
 // - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
 
+$border-radius: 0.25rem;
+
 body.dark {
   --background: #{$darkBlue-3};
   --text: #{$white};
   --input: #{$white};
   --elements: #{$darkBlue-1};
-  --shadow: #{$darkBlue-1};
+  --shadow: rgba(#{$darkBlue-2}, 0.05) 0px 1px 0px,
+    rgba(#{$darkBlue-1}, 0.1) 0px 0px 8px;
 }
 body.light {
   --background: #{$lightGray};
   --text: #{$darkBlue-2};
   --input: #{$darkGray};
   --elements: #{$white};
-  --shadow: #{$lightGray};
+  --shadow: rgba(#{$darkBlue-2}, 0.05) 0px 1px 0px,
+    rgba(#{$darkBlue-1}, 0.1) 0px 0px 8px;
 }
 
 :root {
@@ -39,14 +43,16 @@ body.light {
     --text: #{$white};
     --input: #{$white};
     --elements: #{$darkBlue-1};
-    --shadow: #{$darkBlue-1};
+    --shadow: rgba(#{$darkBlue-2}, 0.05) 0px 1px 0px,
+      rgba(#{$darkBlue-1}, 0.1) 0px 0px 8px;
   }
   @media (prefers-color-scheme: light) {
     --background: #{$lightGray};
     --text: #{$darkBlue-2};
     --input: #{$darkGray};
     --elements: #{$white};
-    --shadow: #{$lightGray};
+    --shadow: rgba(#{$darkBlue-2}, 0.05) 0px 1px 0px,
+      rgba(#{$darkBlue-1}, 0.1) 0px 0px 8px;
   }
 }
 
@@ -64,15 +70,18 @@ body {
 #root {
   margin: 0 auto;
 }
-
-// header, search
+.center {
+  margin: 0 auto;
+}
+// container
 .container-sm {
+  // header, search
   padding-left: 15px;
   padding-right: 15px;
   @extend .container;
 }
-// main
 .container-lg {
+  // main
   padding-left: 50px;
   padding-right: 50px;
   @extend .container;
@@ -92,6 +101,10 @@ body {
 @media (min-width: 1200px) {
   .container {
     width: 1200px;
+  }
+  .container-sm {
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 @media (min-width: 1440px) {

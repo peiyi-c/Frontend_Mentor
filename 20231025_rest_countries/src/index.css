@@ -28,9 +28,18 @@ input,
 button,
 textarea,
 select {
-  background-color: inherit;
   font: inherit;
   border: none;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+input,
+button,
+textarea {
+  background-color: inherit;
 }
 
 /* custom styles */

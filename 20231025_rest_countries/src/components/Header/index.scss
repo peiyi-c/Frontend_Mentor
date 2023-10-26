@@ -14,17 +14,15 @@ header {
   box-shadow: 0px 5px 50px var(--shadow);
   &__wrapper {
     width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
   }
   &-headline {
     h1 {
       font-size: 1.4rem;
     }
-  }
-  div {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
   }
 }
 .theme {
