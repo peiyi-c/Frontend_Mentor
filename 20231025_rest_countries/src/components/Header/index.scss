@@ -1,0 +1,45 @@
+@use "../../containers/App.scss" as *;
+header {
+  position: sticky;
+  top: 0;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 80px;
+  width: 100%;
+  background-color: var(--elements);
+  box-shadow: 0px 5px 50px var(--shadow);
+  &__wrapper {
+    width: 100%;
+  }
+  &-headline {
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+  div {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.nav {
+  &__toggle {
+    display: flex;
+    gap: 10px;
+    color: var(--text);
+    font-size: 1rem;
+    &-icon {
+      color: inherit;
+      font-size: inherit;
+    }
+    &-name {
+      color: inherit;
+      font-size: inherit;
+    }
+  }
+}

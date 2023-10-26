@@ -23,12 +23,14 @@ body.dark {
   --text: #{$white};
   --input: #{$white};
   --elements: #{$darkBlue-1};
+  --shadow: #{$darkGray};
 }
 body.light {
   --background: #{$lightGray};
   --text: #{$darkBlue-2};
   --input: #{$darkGray};
   --elements: #{$white};
+  --shadow: #{$lightGray};
 }
 
 :root {
@@ -37,12 +39,14 @@ body.light {
     --text: #{$white};
     --input: #{$white};
     --elements: #{$darkBlue-1};
+    --shadow: #{$darkGray};
   }
   @media (prefers-color-scheme: light) {
     --background: #{$lightGray};
     --text: #{$darkBlue-2};
     --input: #{$darkGray};
     --elements: #{$white};
+    --shadow: #{$lightGray};
   }
 }
 
@@ -59,4 +63,39 @@ body {
 
 #root {
   margin: 0 auto;
+}
+
+// header, search
+.container-sm {
+  padding-left: 15px;
+  padding-right: 15px;
+  @extend .container;
+}
+// main
+.container-lg {
+  padding-left: 50px;
+  padding-right: 50px;
+  @extend .container;
+}
+
+@media (min-width: 750px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 992px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+    width: 1440px;
+  }
 }
