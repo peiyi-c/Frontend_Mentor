@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import "./index.scss";
+import { ThemeContext } from "../../containers/ThemeContext";
 
 export const Header = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
+
   return (
     <>
       <header className="header" role="banner">
@@ -9,7 +13,7 @@ export const Header = () => {
             <h1>Where in the world?</h1>
           </div>
           <nav className="nav" role="navigation" aria-label="Color-Toggle">
-            <div className="nav__toggle">
+            <button className="nav__toggle">
               <ion-icon
                 className="nav__toggle-icon"
                 name="moon-outline"
@@ -21,7 +25,7 @@ export const Header = () => {
                 aria-hidden="true"
               ></ion-icon>
               <span className="nav__toggle-name">Dark Mode</span>
-            </div>
+            </button>
           </nav>
         </div>
       </header>

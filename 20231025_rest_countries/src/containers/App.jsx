@@ -1,10 +1,13 @@
-import { Header } from "../components/Header";
 import "./App.scss";
+import { ThemeMessage } from "./ThemeContext";
+import { Header } from "../components/Header";
 
 function App() {
   return (
     <>
-      <Header />
+      <ThemeMessage initialTheme="light">
+        <Header />
+      </ThemeMessage>
     </>
   );
 }
