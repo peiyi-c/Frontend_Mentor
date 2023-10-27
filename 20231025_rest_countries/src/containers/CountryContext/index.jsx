@@ -7,6 +7,8 @@ export const baseURL = "https://restcountries.com/v3.1/";
 
 export const CountryMessage = ({ children }) => {
   const [data, setData] = useState([]);
+  const [filter, setFilter] = useState("All");
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
     axios.get(baseURL + "all").then((response) => {
@@ -15,7 +17,16 @@ export const CountryMessage = ({ children }) => {
   }, []);
 
   return (
-    <CountryContext.Provider value={{ data }}>
+    <CountryContext.Provider
+      value={{
+        data,
+        baseURL,
+        filter,
+        setFilter,
+        keyword,
+        setKeyword,
+      }}
+    >
       {children}
     </CountryContext.Provider>
   );
