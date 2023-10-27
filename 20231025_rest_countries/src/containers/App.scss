@@ -18,8 +18,7 @@ $white: hsl(0, 0%, 100%);
 // - White (Dark Mode Input): hsl(0, 0%, 100%)
 // - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
 
-$border-radius: 0.25rem;
-
+/* COLOR THEMES */
 body.dark {
   --background: #{$darkBlue-3};
   --text: #{$white};
@@ -56,6 +55,10 @@ body.light {
   }
 }
 
+/* BORDER RADIUS */
+$border-radius: 0.25rem;
+
+/* CUSTOM STYLES DEFAULT */
 body {
   line-height: 1.5; // test
   font-weight: 300;
