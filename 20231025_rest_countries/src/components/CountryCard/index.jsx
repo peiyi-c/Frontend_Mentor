@@ -23,15 +23,15 @@ export const CountryCard = ({
         role="img"
         aria-label={alt}
       ></div>
-      <p className="card__text">
+      <div className="card__text">
         <h3 className="card__text-title">{name}</h3>
-        <p className="card__text-info">
+        <div className="card__text-info">
           <span className="name">Polulation:</span> {population}
           <br />
           <span className="name">Region:</span> {region} <br />
           <span className="name">Capital:</span> {capital}
-        </p>
-      </p>
+        </div>
+      </div>
     </div>
   );
 };

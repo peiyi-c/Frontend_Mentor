@@ -5,14 +5,6 @@ import { CountryContext } from "../../containers/CountryContext";
 export const Navigation = () => {
   const { filter, setFilter, keyword, setKeyword } = useContext(CountryContext);
 
-  const handleKeyword = (e) => {
-    const value = e.target.value;
-    if (!value.trim().length) {
-      return;
-    }
-    setKeyword(value);
-  };
-
   return (
     <nav className="nav container-sm center" role="navigation">
       <div className="nav__wrapper">
@@ -24,7 +16,7 @@ export const Navigation = () => {
             type="search"
             placeholder="Search for a country..."
             value={keyword}
-            onChange={handleKeyword}
+            onChange={(e) => setKeyword(e.target.value)}
           />
         </label>
         <div className="nav__filter">
@@ -36,7 +28,7 @@ export const Navigation = () => {
           >
             <option value="All">Filter By Region</option>
             <option value="Africa">Africa</option>
-            <option value="America">America</option>
+            <option value="Americas">Americas</option>
             <option value="Asia">Asia</option>
             <option value="Europe">Europe</option>
             <option value="Oceania">Oceania</option>
