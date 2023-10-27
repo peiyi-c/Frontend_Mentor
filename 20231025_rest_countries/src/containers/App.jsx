@@ -1,12 +1,13 @@
 import "./App.scss";
 import { ThemeMessage } from "./ThemeContext";
-import { Header } from "../components/Header";
+import { CountryMessage } from "./CountryContext";
 
-// import { Navigation } from "../components/Navigation";
-// import { Main } from "../components/Main";
+import { Header } from "../components/Header";
+import { Navigation } from "../components/Navigation";
+import { Main } from "../components/Main";
 import { CountryCardDetail } from "../components/CountryCardDetail";
 function App() {
-  // get initial theme
+  // get initial theme from localStorage and user preference
   const getLocalStorage = () => {
     const theme = localStorage.getItem("colorMode");
     if (theme) {
@@ -23,9 +24,11 @@ function App() {
     <>
       <ThemeMessage initialTheme={theme}>
         <Header />
-        {/* <Navigation />
-        <Main /> */}
-        <CountryCardDetail />
+        <CountryMessage>
+          <Navigation />
+          <Main />
+          <CountryCardDetail />
+        </CountryMessage>
       </ThemeMessage>
     </>
   );
