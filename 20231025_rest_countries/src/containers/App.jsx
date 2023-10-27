@@ -2,8 +2,9 @@ import "./App.scss";
 import { ThemeMessage } from "./ThemeContext";
 import { Header } from "../components/Header";
 
-import { Navigation } from "../components/Navigation";
-import { Main } from "../components/Main";
+// import { Navigation } from "../components/Navigation";
+// import { Main } from "../components/Main";
+import { CountryCardDetail } from "../components/CountryCardDetail";
 function App() {
   // get initial theme
   const getLocalStorage = () => {
@@ -22,8 +23,9 @@ function App() {
     <>
       <ThemeMessage initialTheme={theme}>
         <Header />
-        <Navigation />
-        <Main />
+        {/* <Navigation />
+        <Main /> */}
+        <CountryCardDetail />
       </ThemeMessage>
     </>
   );

@@ -1,0 +1,72 @@
+@use "../../containers/App.scss" as *;
+.card-detail {
+  container-type: inline-size;
+  &__btn {
+    height: auto;
+    width: auto;
+    margin: 40px auto 60px;
+    padding: 10px 30px;
+    border-radius: $border-radius;
+    background-color: var(--elements);
+    box-shadow: var(--shadow);
+    color: var(--text);
+    .md.hydrated {
+      position: relative;
+      top: 2px;
+      margin-right: 10px;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+
+    &__img {
+      width: 100%;
+      height: 225px;
+      border: 1px solid salmon; // test
+    }
+    &__info {
+      .name {
+        font-weight: 600;
+      }
+      .wrapper {
+        margin: 20px auto;
+      }
+      button {
+        @extend .card-detail__btn;
+        padding: 5px;
+        margin: 10px 10px 0 0;
+        min-width: 100px;
+      }
+    }
+  }
+}
+
+@container (min-inline-size: 345px) {
+  .card-detail__content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 8vw;
+  }
+}
+
+@container (min-inline-size: 900px) {
+  .card-detail__content {
+    &__info {
+      .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .wrapper-2 {
+        h4 {
+          padding: 5px;
+          margin: 10px 10px 0 0;
+          min-width: 100px;
+        }
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
