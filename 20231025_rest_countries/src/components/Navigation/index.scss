@@ -1,9 +1,8 @@
 @use "../../containers/App.scss" as *;
 .nav {
-  margin-top: 25px;
-
   &__wrapper {
     width: 100%;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     gap: 72px;
