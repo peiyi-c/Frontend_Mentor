@@ -15,6 +15,9 @@ export const CountryCard = ({
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
+  const formater = (integer) => {
+    return new Intl.NumberFormat("en-US").format(integer);
+  };
   return (
     <div className="card">
       <div
@@ -26,7 +29,7 @@ export const CountryCard = ({
       <div className="card__text">
         <h3 className="card__text-title">{name}</h3>
         <div className="card__text-info">
-          <span className="name">Polulation:</span> {population}
+          <span className="name">Polulation:</span> {formater(population)}
           <br />
           <span className="name">Region:</span> {region} <br />
           <span className="name">Capital:</span> {capital}
