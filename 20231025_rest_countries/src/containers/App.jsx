@@ -9,9 +9,12 @@ import { CountryCardDetail } from "../components/CountryCardDetail";
 function App() {
   // get initial theme from localStorage and user preference
   const getLocalStorage = () => {
-    const theme = localStorage.getItem("colorMode");
+    let theme = localStorage.getItem("colorMode");
     if (theme) {
-      return JSON.parse(theme);
+      theme = JSON.parse(theme);
+      if (theme === "light" || theme === "dark") {
+        return theme;
+      }
     } else return "";
   };
   const getThemePreference = () => {
