@@ -1,0 +1,26 @@
+@use "../../containers/App.scss" as *;
+.card {
+  height: 330px;
+  width: 100%;
+  border-radius: $border-radius;
+  background-color: var(--elements);
+  &__image {
+    height: 50%;
+    width: 100%;
+    border: 1px solid red;
+  }
+  &__text {
+    height: 50%;
+    width: 100%;
+    padding: 25px;
+    &-title {
+      margin-bottom: 10px;
+    }
+    &-info {
+      line-height: 1.8;
+      .name {
+        font-weight: 600;
+      }
+    }
+  }
+}
