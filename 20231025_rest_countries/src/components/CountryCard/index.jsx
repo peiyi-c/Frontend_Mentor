@@ -1,15 +1,35 @@
+/* eslint-disable react/prop-types */
 import "./index.scss";
-export const CountryCard = () => {
+export const CountryCard = ({
+  flag,
+  alt,
+  name,
+  population,
+  region,
+  capital,
+}) => {
+  const image = {
+    backgroundImage: `url(${flag})`,
+    width: "100%",
+    objectFit: "cover",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
   return (
     <div className="card">
-      <div className="card__image"></div>
+      <div
+        className="card__image"
+        style={image}
+        role="img"
+        aria-label={alt}
+      ></div>
       <p className="card__text">
-        <h3 className="card__text-title">Country Name</h3>
+        <h3 className="card__text-title">{name}</h3>
         <p className="card__text-info">
-          <span className="name">Polulation:</span> 81,770,910
+          <span className="name">Polulation:</span> {population}
           <br />
-          <span className="name">Region:</span> Europe <br />
-          <span className="name">Capital:</span> Berlin
+          <span className="name">Region:</span> {region} <br />
+          <span className="name">Capital:</span> {capital}
         </p>
       </p>
     </div>
