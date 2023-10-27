@@ -1,5 +1,14 @@
 @use "../../containers/App.scss" as *;
 .main {
+  margin-top: 50px;
   &__wrapper {
+  }
+}
+.section {
+  &__country {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-rows: repeat(auto-fill, 330px);
+    gap: 80px;
   }
 }
