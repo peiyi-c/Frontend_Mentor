@@ -32,8 +32,8 @@ body.light {
   --text: #{$darkBlue-2};
   --input: #{$darkGray};
   --elements: #{$white};
-  --shadow: rgba(#{$darkBlue-2}, 0.05) 0px 1px 0px,
-    rgba(#{$darkBlue-1}, 0.1) 0px 0px 8px;
+  --shadow: rgba(#{$darkBlue-2}, 0.9) 0px 1px 0px,
+    rgba(#{$darkBlue-3}, 0.9) 0px 0px 8px;
 }
 
 :root {
@@ -50,13 +50,13 @@ body.light {
     --text: #{$darkBlue-2};
     --input: #{$darkGray};
     --elements: #{$white};
-    --shadow: rgba(#{$darkBlue-2}, 0.05) 0px 1px 0px,
-      rgba(#{$darkBlue-1}, 0.1) 0px 0px 8px;
+    --shadow: rgba(#{$darkBlue-2}, 0.9) 0px 1px 0px,
+      rgba(#{$darkBlue-3}, 0.8) 0px 0px 8px;
   }
 }
 
 /* BORDER RADIUS */
-$border-radius: 0.25rem;
+$border-radius: 0.3rem;
 
 /* CUSTOM STYLES DEFAULT */
 body {

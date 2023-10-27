@@ -1,7 +1,6 @@
 @use "../../containers/App.scss" as *;
 .nav {
   margin-top: 25px;
-  border: 1px solid red; // test
 
   &__wrapper {
     width: 100%;
@@ -12,39 +11,52 @@
   }
 
   &__search {
+    position: relative;
+    .md.hydrated {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 30px;
+      width: 15px;
+      height: 15px;
+      color: var(--input);
+    }
+
+    &-input {
+      &::placeholder {
+        color: var(--input);
+      }
+    }
   }
   &__filter {
     position: relative;
-    &::before {
+    .md.hydrated {
       position: absolute;
-      right: 50%;
-      content: "";
-      --size: 0.35rem;
-      pointer-events: none;
-      border-left: var(--size) solid transparent;
-      border-right: var(--size) solid transparent;
-      border-top: var(--size) solid var(--input);
       top: 50%;
+      transform: translateY(-50%);
+      right: 50%;
     }
   }
   // input, select
-  input[type="text"],
+  input[type="search"],
   select {
     height: 50px;
-    padding: 15px;
+
     border-radius: $border-radius;
     color: var(--text);
     font-weight: 600;
-    background: var(--elements);
+    background-color: var(--elements);
     box-shadow: var(--hover);
     appearance: none;
     -webkit-appearance: none;
   }
-  input[type="text"] {
+  input[type="search"] {
     width: 100%;
+    padding: 15px 15px 15px 75px;
   }
   select {
     width: 55%;
+    padding: 15px 15px 15px 30px;
   }
 }
 
@@ -56,11 +68,11 @@
       justify-content: space-between;
     }
     &__filter {
-      &::before {
+      .md.hydrated {
         right: 10%;
       }
     }
-    input[type="text"] {
+    input[type="search"] {
       width: 480px;
     }
     select {
