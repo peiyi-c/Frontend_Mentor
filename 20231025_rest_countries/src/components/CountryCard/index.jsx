@@ -3,6 +3,7 @@ import "./index.scss";
 import { Link } from "react-router-dom";
 import { CountryContext } from "../../containers/CountryContext";
 import { useContext } from "react";
+import { formater } from "../../helpers";
 export const CountryCard = ({
   flag,
   alt,
@@ -18,9 +19,7 @@ export const CountryCard = ({
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
-  const formater = (integer) => {
-    return new Intl.NumberFormat("en-US").format(integer);
-  };
+
   return (
     <Link to={`/detail/${name}`}>
       <div className="card">
