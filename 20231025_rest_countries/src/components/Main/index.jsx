@@ -34,6 +34,10 @@ export const Main = () => {
     }
   }, [data, filter, keyword]);
 
+  const handleClick = () => {
+    console.log("clicked");
+  };
+
   return (
     <main className="main" role="main">
       <div className="main__wrapper container-lg center">
@@ -48,6 +52,7 @@ export const Main = () => {
                 region={item.region}
                 capital={item.capital}
                 key={index}
+                onClick={handleClick}
               />
             );
           })}

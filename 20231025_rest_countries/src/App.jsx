@@ -1,11 +1,11 @@
 import "./App.scss";
-import { ThemeMessage } from "./ThemeContext";
-import { CountryMessage } from "./CountryContext";
+import { ThemeMessage } from "./containers/ThemeContext";
+import { CountryMessage } from "./containers/CountryContext";
 
-import { Header } from "../components/Header";
-import { Navigation } from "../components/Navigation";
-import { Main } from "../components/Main";
-import { CountryCardDetail } from "../components/CountryCardDetail";
+import { Header } from "./components/Header";
+import { Navigation } from "./components/Navigation";
+import { Main } from "./components/Main";
+import { CountryCardDetail } from "./components/CountryCardDetail";
 function App() {
   // get initial theme from localStorage and user preference
   const getLocalStorage = () => {
