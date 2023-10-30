@@ -27,9 +27,9 @@ export const CountryCardDetail = () => {
   };
   return (
     <div className="card-detail container-sm center">
-      <button className="card-detail__btn">
+      <button className="card-detail__btn" onClick={goBack}>
         <ion-icon name="arrow-back-outline"></ion-icon>
-        <span onClick={goBack}>Back</span>
+        <span>Back</span>
       </button>
       <div className="card-detail__content">
         <img className="card-detail__content__img" src={png}></img>
@@ -83,6 +83,7 @@ export const CountryCardDetail = () => {
                   </button>
                 </Link>
               ))}
+            {!borders && <span>none</span>}
           </div>
         </div>
       </div>
