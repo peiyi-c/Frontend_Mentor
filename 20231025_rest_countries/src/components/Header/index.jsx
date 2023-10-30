@@ -1,18 +1,18 @@
 import "./index.scss";
-import { useEffect, useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../containers/ThemeContext";
 
 export const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
+  const handleClick = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("colorMode", JSON.stringify(theme));
   }, [theme]);
-
-  const handleClick = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
 
   return (
     <>
