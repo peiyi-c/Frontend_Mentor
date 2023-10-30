@@ -1,7 +1,7 @@
 import "./index.scss";
 import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../containers/ThemeContext";
-
+import { Outlet } from "react-router-dom";
 export const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
@@ -38,6 +38,7 @@ export const Header = () => {
           </div>
         </div>
       </header>
+      <Outlet />
     </>
   );
 };
