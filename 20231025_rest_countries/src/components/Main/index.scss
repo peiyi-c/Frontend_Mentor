@@ -1,8 +1,7 @@
-@use "../../containers/App.scss" as *;
+@use "../../App.scss" as *;
 .main {
   margin-top: 50px;
-  &__wrapper {
-  }
+  margin-bottom: 50px;
 }
 .section {
   &__country {
