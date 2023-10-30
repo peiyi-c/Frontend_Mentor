@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { createContext, useState, useEffect } from "react";
-import axios from "axios";
-
 export const CountryContext = createContext();
-export const baseURL = "https://restcountries.com/v3.1/";
+
+import axios from "axios";
+const baseURL = "https://restcountries.com/v3.1/";
 
 export const CountryMessage = ({ children }) => {
   const [data, setData] = useState([]);
@@ -20,7 +21,6 @@ export const CountryMessage = ({ children }) => {
     <CountryContext.Provider
       value={{
         data,
-        baseURL,
         filter,
         setFilter,
         keyword,

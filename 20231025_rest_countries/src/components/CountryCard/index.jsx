@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./index.scss";
 import { Link } from "react-router-dom";
-import { CountryContext } from "../../containers/CountryContext";
-import { useContext } from "react";
 import { formater } from "../../helpers";
 export const CountryCard = ({
   flag,
@@ -11,6 +9,7 @@ export const CountryCard = ({
   population,
   region,
   capital,
+  index,
 }) => {
   const image = {
     backgroundImage: `url(${flag})`,
@@ -21,7 +20,7 @@ export const CountryCard = ({
   };
 
   return (
-    <Link to={`/detail/${name}`}>
+    <Link to={`/detail/${index}`}>
       <div className="card">
         <div
           className="card__image"
