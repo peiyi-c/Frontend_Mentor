@@ -1,9 +1,24 @@
 import "./index.scss";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { CountryContext } from "../../containers/CountryContext";
-
+import { useNavigate, createSearchParams } from "react-router-dom";
 export const Navigation = () => {
   const { filter, setFilter, keyword, setKeyword } = useContext(CountryContext);
+
+  const navigate = useNavigate();
+  const searchInputRef = useRef();
+  const handleChange = (e) => {
+    setKeyword(e.target.value);
+
+    const searchQuery = {
+      q: searchInputRef.current.value,
+    };
+    const query = createSearchParams(searchQuery);
+    navigate({
+      pathname: "/",
+      search: `?${query}`,
+    });
+  };
 
   return (
     <nav className="nav container-sm center" role="navigation">
@@ -16,7 +31,8 @@ export const Navigation = () => {
             type="search"
             placeholder="Search for a country..."
             value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
+            onChange={handleChange}
+            ref={searchInputRef}
           />
         </label>
         <div className="nav__filter">
