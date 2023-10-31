@@ -2,7 +2,6 @@
 /* eslint-disable react/prop-types */
 import { createContext, useState, useEffect } from "react";
 export const CountryContext = createContext();
-
 import axios from "axios";
 const baseURL = "https://restcountries.com/v3.1/";
 
@@ -20,6 +19,7 @@ export const CountryMessage = ({ children }) => {
   return (
     <CountryContext.Provider
       value={{
+        baseURL,
         data,
         filter,
         setFilter,

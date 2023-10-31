@@ -10,6 +10,7 @@ export const CountryCard = ({
   region,
   capital,
   index,
+  cca3,
 }) => {
   const image = {
     backgroundImage: `url(${flag})`,
@@ -20,7 +21,7 @@ export const CountryCard = ({
   };
 
   return (
-    <Link to={`/detail/${index}`}>
+    <Link to={`/detail/${cca3}`}>
       <div className="card">
         <div
           className="card__image"
