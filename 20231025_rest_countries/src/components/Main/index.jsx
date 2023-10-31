@@ -38,20 +38,23 @@ export const Main = () => {
     <main className="main" role="main">
       <div className="main__wrapper container-lg center">
         <section className="section__country">
-          {filteredData.map((item, index) => {
-            return (
-              <CountryCard
-                flag={item.flags.png}
-                alt={item.flags.alt}
-                name={item.name.common}
-                population={item.population}
-                region={item.region}
-                capital={item.capital}
-                key={index}
-                index={index}
-              />
-            );
-          })}
+          {filteredData &&
+            filteredData.map((item, index) => {
+              return (
+                <CountryCard
+                  flag={item.flags.png}
+                  alt={item.flags.alt}
+                  name={item.name.common}
+                  population={item.population}
+                  region={item.region}
+                  capital={item.capital}
+                  key={index}
+                  index={index}
+                  cca3={item.cca3}
+                />
+              );
+            })}
+          {!filteredData && <h1>Loading...</h1>}
         </section>
       </div>
     </main>
