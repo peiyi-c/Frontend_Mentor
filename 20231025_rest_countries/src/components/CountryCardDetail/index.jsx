@@ -1,27 +1,23 @@
 import "./index.scss";
-import axios from "axios";
 import { CountryContext } from "../../containers/CountryContext";
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { formater, borderFilter } from "../../helpers";
+import { formater, getIndex } from "../../helpers";
 
 export const CountryCardDetail = () => {
   const { cca3 } = useParams();
-  const { data, baseURL } = useContext(CountryContext);
+  const { data } = useContext(CountryContext);
   const [country, setCountry] = useState(null);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
-    axios.get(baseURL + "alpha?codes=" + cca3).then((response) => {
-      console.log(response.data[0]);
-      setCountry(response.data[0]);
-    });
-  }, [baseURL, cca3]);
+    setCountry(data[getIndex(cca3, data)]);
+  }, [data, cca3]);
 
+  const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
   };
+
   return (
     <div className="card-detail container-sm center">
       <button className="card-detail__btn" onClick={goBack}>
@@ -90,7 +86,7 @@ export const CountryCardDetail = () => {
                 country.borders.map((border, idx) => (
                   <button key={idx}>
                     <Link to={`/detail/${border}`}>
-                      {data[borderFilter(border, data)]["name"]["common"]}
+                      {data[getIndex(border, data)]["name"]["common"]}
                     </Link>
                   </button>
                 ))}
