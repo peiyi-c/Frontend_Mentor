@@ -14,7 +14,9 @@ export const CountryCard = ({
   return (
     <Link to={`/detail/${cca3}`}>
       <div className="card">
-        <img className="card__image" src={flag} alt={alt} />
+        <div className="card__image" role="image">
+          <img src={flag} alt={alt} />
+        </div>
         <div className="card__text">
           <h3 className="card__text-title">{name}</h3>
           <div className="card__text-info">
