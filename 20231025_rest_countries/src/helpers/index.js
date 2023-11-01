@@ -15,8 +15,12 @@ const filters = {
       : countries.filter((country) => country.region === region);
   },
   word: (countries, keyword) => {
+    keyword = keyword.toLowerCase();
     return countries.filter((country) => {
-      return country.name.common.toLowerCase().includes(keyword);
+      let { name, region } = country;
+      name = name.common.toLowerCase();
+      region = region.toLowerCase();
+      return name.includes(keyword) || region.includes(keyword);
     });
   },
 };
