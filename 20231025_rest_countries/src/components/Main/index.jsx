@@ -5,7 +5,7 @@ import { useContext, useMemo } from "react";
 import { filters } from "../../helpers";
 
 export const Main = () => {
-  const { data, filter, keyword } = useContext(CountryContext);
+  const { data, filter, keyword, fetchStatus } = useContext(CountryContext);
   const filteredData = useMemo(() => {
     if (filter === "All") {
       if (!keyword) {
@@ -26,7 +26,11 @@ export const Main = () => {
     <main className="main" role="main">
       <div className="main__wrapper container-lg center">
         <section className="section__country">
-          {filteredData &&
+          {fetchStatus === "loading" && <h1>Loading...</h1>}
+          {fetchStatus === "error" && (
+            <h1>Server is busy, please try it later...</h1>
+          )}
+          {fetchStatus === "success" &&
             filteredData.map((item, index) => {
               return (
                 <CountryCard
@@ -42,7 +46,6 @@ export const Main = () => {
                 />
               );
             })}
-          {!filteredData && <h1>Loading...</h1>}
         </section>
       </div>
     </main>

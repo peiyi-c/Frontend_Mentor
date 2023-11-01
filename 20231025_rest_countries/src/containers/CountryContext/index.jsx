@@ -9,11 +9,18 @@ export const CountryMessage = ({ children }) => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("All");
   const [keyword, setKeyword] = useState("");
-
+  const [fetchStatus, setFetchStatus] = useState("idle");
   useEffect(() => {
-    axios.get(baseURL + "all").then((response) => {
-      setData(response.data);
-    });
+    setFetchStatus("loading");
+    axios
+      .get(baseURL + "all")
+      .then((response) => {
+        setData(response.data);
+        setFetchStatus("success");
+      })
+      .catch((error) => {
+        setFetchStatus("error");
+      });
   }, []);
 
   return (
@@ -24,6 +31,7 @@ export const CountryMessage = ({ children }) => {
         setFilter,
         keyword,
         setKeyword,
+        fetchStatus,
       }}
     >
       {children}

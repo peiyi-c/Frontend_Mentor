@@ -24,6 +24,7 @@ export const CountryCardDetail = () => {
         <ion-icon name="arrow-back-outline"></ion-icon>
         <span>Back</span>
       </button>
+      {!country && <h1>Loading...</h1>}
       {country && (
         <div className="card-detail__content">
           <img
@@ -95,7 +96,6 @@ export const CountryCardDetail = () => {
           </div>
         </div>
       )}
-      {!country && <h1>Loading...</h1>}
     </div>
   );
 };
