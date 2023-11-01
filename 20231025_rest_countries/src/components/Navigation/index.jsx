@@ -3,12 +3,16 @@ import { useContext, useEffect } from "react";
 import { CountryContext } from "../../containers/CountryContext";
 import { useSearchParams } from "react-router-dom";
 export const Navigation = () => {
-  const { filter, setFilter, setKeyword } = useContext(CountryContext);
-  const [search, setSearch] = useSearchParams();
+  const { setFilter, setKeyword } = useContext(CountryContext);
+  const [search, setSearch] = useSearchParams({ region: "All" });
 
   useEffect(() => {
     setKeyword(search.get("q"));
   }, [search, setKeyword]);
+
+  useEffect(() => {
+    setFilter(search.get("region"));
+  }, [search, setFilter]);
 
   return (
     <nav className="nav container-sm center" role="navigation">
@@ -21,15 +25,25 @@ export const Navigation = () => {
             type="search"
             placeholder="Search for a country..."
             value={search.get("q")}
-            onChange={(e) => setSearch({ q: e.target.value })}
+            onChange={(e) => {
+              setSearch((search) => {
+                search.set("q", e.target.value);
+                return search;
+              });
+            }}
           />
         </label>
         <div className="nav__filter">
           <select
             name="region"
             id="region"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
+            value={search.get("region")}
+            onChange={(e) => {
+              setSearch((search) => {
+                search.set("region", e.target.value);
+                return search;
+              });
+            }}
           >
             <option value="All">Filter By Region</option>
             <option value="Africa">Africa</option>
