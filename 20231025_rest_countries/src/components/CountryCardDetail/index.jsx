@@ -3,8 +3,7 @@ import axios from "axios";
 import { CountryContext } from "../../containers/CountryContext";
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { formater } from "../../helpers";
-import { filter } from "../../helpers";
+import { formater, borderFilter } from "../../helpers";
 
 export const CountryCardDetail = () => {
   const { cca3 } = useParams();
@@ -91,7 +90,7 @@ export const CountryCardDetail = () => {
                 country.borders.map((border, idx) => (
                   <button key={idx}>
                     <Link to={`/detail/${border}`}>
-                      {data[filter(border, data)]["name"]["common"]}
+                      {data[borderFilter(border, data)]["name"]["common"]}
                     </Link>
                   </button>
                 ))}

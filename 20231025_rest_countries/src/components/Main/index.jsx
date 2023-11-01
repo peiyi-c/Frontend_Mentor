@@ -2,19 +2,7 @@ import "./index.scss";
 import { CountryContext } from "../../containers/CountryContext";
 import { CountryCard } from "../CountryCard";
 import { useContext, useMemo } from "react";
-
-const filters = {
-  region: (countries, region) => {
-    return region === "All"
-      ? countries
-      : countries.filter((country) => country.region === region);
-  },
-  word: (countries, keyword) => {
-    return countries.filter((country) => {
-      return country.name.common.toLowerCase().includes(keyword);
-    });
-  },
-};
+import { filters } from "../../helpers";
 
 export const Main = () => {
   const { data, filter, keyword } = useContext(CountryContext);
