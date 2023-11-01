@@ -11,23 +11,10 @@ export const CountryCard = ({
   capital,
   cca3,
 }) => {
-  const image = {
-    backgroundImage: `url(${flag})`,
-    width: "100%",
-    objectFit: "cover",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-
   return (
     <Link to={`/detail/${cca3}`}>
       <div className="card">
-        <div
-          className="card__image"
-          style={image}
-          role="img"
-          aria-label={alt}
-        ></div>
+        <img className="card__image" src={flag} alt={alt} />
         <div className="card__text">
           <h3 className="card__text-title">{name}</h3>
           <div className="card__text-info">
