@@ -4,7 +4,7 @@ import { CountryContext } from "../../containers/CountryContext";
 import { useSearchParams } from "react-router-dom";
 export const Navigation = () => {
   const { setFilter, setKeyword } = useContext(CountryContext);
-  const [search, setSearch] = useSearchParams({ region: "All" });
+  const [search, setSearch] = useSearchParams({ q: "", region: "All" });
 
   useEffect(() => {
     setKeyword(search.get("q"));
