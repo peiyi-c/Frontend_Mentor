@@ -1,13 +1,11 @@
+// format population
 const formater = (integer) => {
   return new Intl.NumberFormat("en-US").format(integer);
 };
 
-const borderFilter = (border, data) => {
-  return data
-    .map((item) => {
-      return item.cca3;
-    })
-    .indexOf(border);
+// get a country object's index in data array with value of the cca3 property
+const getIndex = (cca3, data) => {
+  return data.map((item) => item.cca3).indexOf(cca3);
 };
 
 const filters = {
@@ -23,4 +21,4 @@ const filters = {
   },
 };
 
-export { formater, borderFilter, filters };
+export { formater, getIndex, filters };
