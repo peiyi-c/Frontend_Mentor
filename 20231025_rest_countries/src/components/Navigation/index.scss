@@ -45,9 +45,9 @@
     color: var(--text);
     font-weight: 600;
     background-color: var(--elements);
-    box-shadow: var(--hover);
     appearance: none;
     -webkit-appearance: none;
+    box-shadow: var(--shadow);
   }
   input[type="search"] {
     width: 100%;

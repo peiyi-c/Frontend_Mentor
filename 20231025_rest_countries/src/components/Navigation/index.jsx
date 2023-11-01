@@ -35,6 +35,7 @@ export const Navigation = () => {
         </label>
         <div className="nav__filter">
           <select
+            className="nav__filter-select"
             name="region"
             id="region"
             value={search.get("region")}
