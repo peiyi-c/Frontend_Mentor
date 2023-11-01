@@ -9,7 +9,6 @@ export const CountryCard = ({
   population,
   region,
   capital,
-  index,
   cca3,
 }) => {
   const image = {

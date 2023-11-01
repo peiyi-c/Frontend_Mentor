@@ -19,7 +19,6 @@ export const CountryMessage = ({ children }) => {
   return (
     <CountryContext.Provider
       value={{
-        baseURL,
         data,
         filter,
         setFilter,
