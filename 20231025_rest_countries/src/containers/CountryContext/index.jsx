@@ -9,17 +9,17 @@ export const CountryMessage = ({ children }) => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("All");
   const [keyword, setKeyword] = useState("");
-  const [fetchStatus, setFetchStatus] = useState("idle");
+  const [fetchDataStatus, setFetchDataStatus] = useState("idle");
   useEffect(() => {
-    setFetchStatus("loading");
+    setFetchDataStatus("loading");
     axios
       .get(baseURL + "all")
       .then((response) => {
         setData(response.data);
-        setFetchStatus("success");
+        setFetchDataStatus("success");
       })
       .catch((error) => {
-        setFetchStatus("error");
+        setFetchDataStatus("error");
       });
   }, []);
 
@@ -31,7 +31,8 @@ export const CountryMessage = ({ children }) => {
         setFilter,
         keyword,
         setKeyword,
-        fetchStatus,
+        fetchDataStatus,
+        baseURL,
       }}
     >
       {children}

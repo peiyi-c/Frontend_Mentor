@@ -1,18 +1,30 @@
+/* eslint-disable no-unused-vars */
 import "./index.scss";
 import { CountryContext } from "../../containers/CountryContext";
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { formater, getIndex } from "../../helpers";
 import { CountryCardDetailLoading } from "../CountryCardDetailLoading";
+import axios from "axios";
 
 export const CountryCardDetail = () => {
+  const [fetchCountryStatus, setFetchCountryStatus] = useState("idle");
+  const [country, setCountry] = useState([]);
   const { cca3 } = useParams();
-  const { data } = useContext(CountryContext);
-  const [country, setCountry] = useState(null);
+  const { baseURL, data } = useContext(CountryContext);
 
   useEffect(() => {
-    setCountry(data[getIndex(cca3, data)]);
-  }, [data, cca3]);
+    setFetchCountryStatus("loading");
+    axios
+      .get(baseURL + "alpha/" + cca3)
+      .then((response) => {
+        setCountry((country) => response.data[0]);
+        setFetchCountryStatus("success");
+      })
+      .catch((error) => {
+        setFetchCountryStatus("error");
+      });
+  }, [baseURL, cca3]);
 
   const navigate = useNavigate();
   const goBack = () => {
@@ -25,8 +37,15 @@ export const CountryCardDetail = () => {
         <ion-icon name="arrow-back-outline"></ion-icon>
         <span>Back</span>
       </button>
-      {!country && <CountryCardDetailLoading />}
-      {country && (
+      {fetchCountryStatus === "loading" && <CountryCardDetailLoading />}
+      {fetchCountryStatus === "error" && (
+        <>
+          <h1>Server is busy, please try it later...</h1>
+          <br />
+          <CountryCardDetailLoading />
+        </>
+      )}
+      {fetchCountryStatus === "success" && (
         <div className="card-detail__content">
           <img
             className="card-detail__content__img"

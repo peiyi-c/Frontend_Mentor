@@ -6,7 +6,7 @@ import { filters, randomNumber } from "../../helpers";
 import { CountryCardLoading } from "../CountryCardLoading";
 
 export const Main = () => {
-  const { data, filter, keyword, fetchStatus } = useContext(CountryContext);
+  const { data, filter, keyword, fetchDataStatus } = useContext(CountryContext);
   const filteredData = useMemo(() => {
     if (filter === "All") {
       if (!keyword) {
@@ -27,14 +27,14 @@ export const Main = () => {
     <main className="main" role="main">
       <div className="main__wrapper container-lg center">
         <section className="section__country">
-          {fetchStatus === "loading" &&
+          {fetchDataStatus === "loading" &&
             Array(randomNumber(25))
               .fill(0)
               .map((num, index) => <CountryCardLoading key={index} />)}
-          {fetchStatus === "error" && (
+          {fetchDataStatus === "error" && (
             <h1>Server is busy, please try it later...</h1>
           )}
-          {fetchStatus === "success" &&
+          {fetchDataStatus === "success" &&
             filteredData.map((item, index) => {
               return (
                 <CountryCard
