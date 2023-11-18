@@ -25,4 +25,9 @@ const filters = {
   },
 };
 
-export { formater, getIndex, filters };
+// get a random number
+const randomNumber = (num) => {
+  return Math.floor(Math.random() * (num + 1));
+};
+
+export { formater, getIndex, filters, randomNumber };

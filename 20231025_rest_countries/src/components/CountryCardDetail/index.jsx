@@ -3,6 +3,7 @@ import { CountryContext } from "../../containers/CountryContext";
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { formater, getIndex } from "../../helpers";
+import { CountryCardDetailLoading } from "../CountryCardDetailLoading";
 
 export const CountryCardDetail = () => {
   const { cca3 } = useParams();
@@ -24,7 +25,7 @@ export const CountryCardDetail = () => {
         <ion-icon name="arrow-back-outline"></ion-icon>
         <span>Back</span>
       </button>
-      {!country && <h1>Loading...</h1>}
+      {!country && <CountryCardDetailLoading />}
       {country && (
         <div className="card-detail__content">
           <img

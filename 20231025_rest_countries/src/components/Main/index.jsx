@@ -2,7 +2,8 @@ import "./index.scss";
 import { CountryContext } from "../../containers/CountryContext";
 import { CountryCard } from "../CountryCard";
 import { useContext, useMemo } from "react";
-import { filters } from "../../helpers";
+import { filters, randomNumber } from "../../helpers";
+import { CountryCardLoading } from "../CountryCardLoading";
 
 export const Main = () => {
   const { data, filter, keyword, fetchStatus } = useContext(CountryContext);
@@ -26,7 +27,10 @@ export const Main = () => {
     <main className="main" role="main">
       <div className="main__wrapper container-lg center">
         <section className="section__country">
-          {fetchStatus === "loading" && <h1>Loading...</h1>}
+          {fetchStatus === "loading" &&
+            Array(randomNumber(25))
+              .fill(0)
+              .map((num, index) => <CountryCardLoading key={index} />)}
           {fetchStatus === "error" && (
             <h1>Server is busy, please try it later...</h1>
           )}
