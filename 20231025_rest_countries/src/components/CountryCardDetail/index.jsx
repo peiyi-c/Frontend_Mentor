@@ -2,16 +2,17 @@
 import "./index.scss";
 import { CountryContext } from "../../containers/CountryContext";
 import { useContext, useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import { formater, getIndex } from "../../helpers";
+import { useParams, useNavigate } from "react-router-dom";
+import { formater } from "../../helpers";
 import { CountryCardDetailLoading } from "../CountryCardDetailLoading";
+import { Border } from "../Border";
 import axios from "axios";
 
 export const CountryCardDetail = () => {
   const [fetchCountryStatus, setFetchCountryStatus] = useState("idle");
   const [country, setCountry] = useState([]);
   const { cca3 } = useParams();
-  const { baseURL, data } = useContext(CountryContext);
+  const { baseURL } = useContext(CountryContext);
 
   useEffect(() => {
     setFetchCountryStatus("loading");
@@ -45,7 +46,7 @@ export const CountryCardDetail = () => {
           <CountryCardDetailLoading />
         </>
       )}
-      {fetchCountryStatus === "success" && (
+      {country && fetchCountryStatus === "success" && (
         <div className="card-detail__content">
           <img
             className="card-detail__content__img"
@@ -59,7 +60,7 @@ export const CountryCardDetail = () => {
             <div className="wrapper">
               <div>
                 <span className="name">Native Name: </span>
-                {country.name.nativeName &&
+                {country.name.nativeName ? (
                   Object.keys(country.name.nativeName).map((ele, idx) => (
                     <span key={idx}>
                       {country.name.nativeName[ele].common}
@@ -67,11 +68,13 @@ export const CountryCardDetail = () => {
                         ? ", "
                         : ""}
                     </span>
-                  ))}
-                {!country.name.nativeName && <span>-</span>}
+                  ))
+                ) : (
+                  <span>-</span>
+                )}
                 <br />
                 <span className="name">Polulation: </span>
-                {formater(country.population)}
+                {country.population ? formater(country.population) : 0}
                 <br />
                 <span className="name">Region: </span>{" "}
                 {country.region ? country.region : "-"} <br />
@@ -85,7 +88,7 @@ export const CountryCardDetail = () => {
                 <span className="name">Top Level Domain: </span> {country.tld}
                 <br />
                 <span className="name">Currencies: </span>
-                {country.currencies &&
+                {country.currencies ? (
                   Object.keys(country.currencies).map((ele, idx) => (
                     <span key={idx}>
                       {country.currencies[ele].name}
@@ -93,11 +96,13 @@ export const CountryCardDetail = () => {
                         ? ", "
                         : ""}
                     </span>
-                  ))}
-                {!country.currencies && <span>not available</span>}
+                  ))
+                ) : (
+                  <span>no currency</span>
+                )}
                 <br />
                 <span className="name">Languages: </span>{" "}
-                {country.languages &&
+                {country.languages ? (
                   Object.keys(country.languages).map((ele, idx) => (
                     <span key={idx}>
                       {country.languages[ele]}
@@ -105,22 +110,22 @@ export const CountryCardDetail = () => {
                         ? ", "
                         : ""}
                     </span>
-                  ))}
-                {!country.languages && <span>not available</span>}
+                  ))
+                ) : (
+                  <span>not available</span>
+                )}
                 <br />
               </div>
             </div>
             <div className="wrapper-2">
               <h4>Border Countries:</h4>
-              {country.borders &&
+              {country.borders ? (
                 country.borders.map((border, idx) => (
-                  <button key={idx}>
-                    <Link to={`/detail/${border}`}>
-                      {data[getIndex(border, data)]["name"]["common"]}
-                    </Link>
-                  </button>
-                ))}
-              {!country.borders && <span>none</span>}
+                  <Border border={border} key={idx} />
+                ))
+              ) : (
+                <span>no border</span>
+              )}
             </div>
           </div>
         </div>
