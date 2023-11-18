@@ -11,6 +11,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
+  Navigate,
 } from "react-router-dom";
 
 const appRouter = createBrowserRouter(
@@ -18,6 +19,7 @@ const appRouter = createBrowserRouter(
     <Route path="/" element={<Header />}>
       <Route index element={<HomePage />} />
       <Route path="detail/:cca3" element={<CountryCardDetail />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Route>
   )
 );
