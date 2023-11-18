@@ -39,45 +39,54 @@ export const CountryCardDetail = () => {
             <div className="wrapper">
               <div>
                 <span className="name">Native Name: </span>
-                {Object.keys(country.name.nativeName).map((ele, idx) => (
-                  <span key={idx}>
-                    {country.name.nativeName[ele].common}
-                    {idx < Object.keys(country.name.nativeName).length - 1
-                      ? ", "
-                      : ""}
-                  </span>
-                ))}
+                {country.name.nativeName &&
+                  Object.keys(country.name.nativeName).map((ele, idx) => (
+                    <span key={idx}>
+                      {country.name.nativeName[ele].common}
+                      {idx < Object.keys(country.name.nativeName).length - 1
+                        ? ", "
+                        : ""}
+                    </span>
+                  ))}
+                {!country.name.nativeName && <span>-</span>}
                 <br />
-                <span className="name">Polulation: </span>{" "}
+                <span className="name">Polulation: </span>
                 {formater(country.population)}
                 <br />
-                <span className="name">Region: </span> {country.region} <br />
-                <span className="name">Sub Region: </span> {country.subregion}{" "}
+                <span className="name">Region: </span>{" "}
+                {country.region ? country.region : "-"} <br />
+                <span className="name">Sub Region: </span>{" "}
+                {country.subregion ? country.subregion : "-"}
                 <br />
-                <span className="name">Capital: </span> {country.capital} <br />
+                <span className="name">Capital: </span>{" "}
+                {country.capital ? country.capital : "-"} <br />
               </div>
               <div>
-                <span className="name">Top Level Domain: </span> {country.tld}{" "}
+                <span className="name">Top Level Domain: </span> {country.tld}
                 <br />
                 <span className="name">Currencies: </span>
-                {Object.keys(country.currencies).map((ele, idx) => (
-                  <span key={idx}>
-                    {country.currencies[ele].name}
-                    {idx < Object.keys(country.currencies).length - 1
-                      ? ", "
-                      : ""}
-                  </span>
-                ))}
+                {country.currencies &&
+                  Object.keys(country.currencies).map((ele, idx) => (
+                    <span key={idx}>
+                      {country.currencies[ele].name}
+                      {idx < Object.keys(country.currencies).length - 1
+                        ? ", "
+                        : ""}
+                    </span>
+                  ))}
+                {!country.currencies && <span>not available</span>}
                 <br />
                 <span className="name">Languages: </span>{" "}
-                {Object.keys(country.languages).map((ele, idx) => (
-                  <span key={idx}>
-                    {country.languages[ele]}
-                    {idx < Object.keys(country.languages).length - 1
-                      ? ", "
-                      : ""}
-                  </span>
-                ))}
+                {country.languages &&
+                  Object.keys(country.languages).map((ele, idx) => (
+                    <span key={idx}>
+                      {country.languages[ele]}
+                      {idx < Object.keys(country.languages).length - 1
+                        ? ", "
+                        : ""}
+                    </span>
+                  ))}
+                {!country.languages && <span>not available</span>}
                 <br />
               </div>
             </div>
