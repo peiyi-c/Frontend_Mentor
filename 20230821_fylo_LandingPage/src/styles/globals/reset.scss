@@ -78,7 +78,7 @@ img {
 button,
 .button {
   display: inline-block;
-  padding: rem(15) rem(100);
+  padding: rem(16) rem(60);
   width: max-content;
   border: 0;
   border-radius: rem(30) !important;
@@ -99,15 +99,17 @@ button,
 
 input[type="email"] {
   height: rem(70);
-  width: rem(450);
+  width: 80vw;
   border: 0;
-  padding-left: rem(50);
+  padding-left: 5vw;
   border-radius: rem(40) !important;
   font-family: $Raleway, sans-serif;
   font-size: $sm;
   letter-spacing: rem(0.5);
   @include breakpoint-up(large) {
-    padding: rem(20) rem(100) rem(20) rem(50);
+    width: 50vw;
+    max-width: rem(500);
+    padding: rem(20) rem(50) rem(20) 5vw;
   }
 }
 

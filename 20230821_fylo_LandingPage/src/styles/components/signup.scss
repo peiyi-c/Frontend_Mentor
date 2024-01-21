@@ -14,17 +14,8 @@
     }
   }
 
-  &__control {
-    gap: rem(20);
-  }
-
-  &__input {
-    display: block;
-    width: 500px;
-  }
   &__message {
     margin-top: rem(5);
-    padding-left: rem(50);
     text-align: left;
     font-size: $sm;
     color: $darkblue-1;

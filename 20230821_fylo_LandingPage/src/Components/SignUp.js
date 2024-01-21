@@ -18,7 +18,7 @@ export const SignUp = () => {
 
   return (
     <section className="signup" id="signup">
-      <Form>
+      <Form className="w-100 mx-0">
         <Container className="d-flex flex-column align-items-center pt-250 pb-200">
           <h2 className="signup__title title mb-125">Get early access today</h2>
           <div className="signup__description">
@@ -30,7 +30,7 @@ export const SignUp = () => {
           </div>
 
           <Form.Group
-            className="signup__control d-xl-flex align-items-xl-baseline"
+            className="signup__control d-flex flex-column align-items-center"
             controlId="formBasicEmail"
           >
             <div className="signup__input">
@@ -41,7 +41,6 @@ export const SignUp = () => {
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 autocapitalize="none"
                 autocorrect="off"
-                className="w-100"
                 onChange={emailValidation}
               />
               <p
@@ -61,11 +60,9 @@ export const SignUp = () => {
               </p>
             </div>
 
-            <div className="signup__button">
-              <button className="button" type="submit">
-                Get Started For Free
-              </button>
-            </div>
+            <button className="signup__button" type="submit">
+              Get Started For Free
+            </button>
           </Form.Group>
         </Container>
       </Form>
