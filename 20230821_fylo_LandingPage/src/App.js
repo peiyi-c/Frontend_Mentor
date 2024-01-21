@@ -16,7 +16,7 @@ import { Footer } from "./Components/Footer";
 
 function App() {
   return (
-    <div>
+    <>
       <NavBar />
       <Hero />
       <Features features={features} />
@@ -24,7 +24,7 @@ function App() {
       <Testimonials testimonials={testimonials} />
       <SignUp />
       <Footer />
-    </div>
+    </>
   );
 }
 
