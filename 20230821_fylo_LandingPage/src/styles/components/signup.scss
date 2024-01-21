@@ -3,8 +3,8 @@
 .signup {
   display: flex;
   justify-content: center;
+  margin-top: rem(200);
   form {
-    transform: translateY(280px);
     background: $darkblue-1;
     border-radius: rem(20);
     margin: auto 10%;
