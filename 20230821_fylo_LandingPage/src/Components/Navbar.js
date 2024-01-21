@@ -54,7 +54,7 @@ export const NavBar = () => {
               <span>Teams</span>
             </Nav.Link>
             <Nav.Link
-              href="#signin"
+              href="#signup"
               className={
                 activeLink === "signin"
                   ? "active navbar-link d-inline-block"
@@ -62,7 +62,7 @@ export const NavBar = () => {
               }
               onClick={() => onUpdateActiveLink("signin")}
             >
-              <span>Sign In</span>
+              <span>Sign Up</span>
             </Nav.Link>
           </Nav>
         </Container>
