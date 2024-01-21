@@ -30,7 +30,7 @@ export const SignUp = () => {
           </div>
 
           <Form.Group
-            className="signup__control d-flex flex-column align-items-center"
+            className="signup__control d-flex flex-column align-items-center flex-lg-row gap-lg-3 align-items-lg-start"
             controlId="formBasicEmail"
           >
             <div className="signup__input">
@@ -60,7 +60,7 @@ export const SignUp = () => {
               </p>
             </div>
 
-            <button className="signup__button" type="submit">
+            <button className="signup__button w-lg-100" type="submit">
               Get Started For Free
             </button>
           </Form.Group>
