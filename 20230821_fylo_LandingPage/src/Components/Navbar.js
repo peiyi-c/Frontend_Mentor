@@ -30,7 +30,7 @@ export const NavBar = () => {
           <Navbar.Brand>
             <img src={logo} alt="logo" />
           </Navbar.Brand>
-          <Nav className="d-none d-md-flex justify-content-end">
+          <Nav className="d-none d-md-flex justify-content-end gap-md-3">
             <Nav.Link
               href="#features"
               className={
